@@ -1,8 +1,10 @@
 package com.ausoccer.ausoccerintramurals;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -62,13 +67,46 @@ public class Matchday1Fragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                matchesModel = new MatchesModel();
-                matchesModel = matchesModelArrayList.get(i);
-                displayEditDialog(matchesModel.getHomeTeamName(), matchesModel.getAwayTeamName(), matchesModel.getHomeTeamLogoUrl(), matchesModel.getAwayTeamLogoUrl(), matchesModel.getMatchDateAndResult(), matchesModel.getMatchTimeAndStatus(), matchesModel.getGroupName(), matchesModel.getUid());
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    matchesModel = new MatchesModel();
+                    matchesModel = matchesModelArrayList.get(i);
+                    displayEditDialog(matchesModel.getHomeTeamName(), matchesModel.getAwayTeamName(), matchesModel.getHomeTeamLogoUrl(), matchesModel.getAwayTeamLogoUrl(),
+                            matchesModel.getMatchDateAndResult(), matchesModel.getMatchTimeAndStatus(), matchesModel.getGroupName(), matchesModel.getUid());
+                } else {
+                    matchesModel = new MatchesModel();
+                    matchesModel = matchesModelArrayList.get(i);
+
+                    String homeTeamName = matchesModel.getHomeTeamName();
+                    String homeTeamLogoUrl = matchesModel.getHomeTeamLogoUrl();
+                    String awayTeamName = matchesModel.getAwayTeamName();
+                    String awayTeamLogoUrl = matchesModel.getAwayTeamLogoUrl();
+                    String matchDateAndResult = matchesModel.getMatchDateAndResult();
+                    String matchTimeAndStatus = matchesModel.getMatchTimeAndStatus();
+                    String groupName = matchesModel.getGroupName();
+                    String id = matchesModel.getUid();
+
+                    Intent intent = new Intent(getActivity(), MatchDataActivity.class);
+
+                    intent.putExtra("homeTeamName", homeTeamName);
+                    intent.putExtra("homeTeamLogo", homeTeamLogoUrl);
+                    intent.putExtra("awayTeamName", awayTeamName);
+                    intent.putExtra("awayTeamLogo", awayTeamLogoUrl);
+                    intent.putExtra("matchDateAndResult", matchDateAndResult);
+                    intent.putExtra("matchTimeAndStatus", matchTimeAndStatus);
+                    intent.putExtra("groupName", groupName);
+                    intent.putExtra("id", id);
+
+
+                    startActivity(intent);
+                    Toast.makeText(getContext(), "Not signed in. A non signed in activity should start", Toast.LENGTH_SHORT).show();
+
+                }
+
             }
         });
 
-        matchday1.orderByChild("orderMethod").addValueEventListener(new ValueEventListener() {
+        matchday1.orderByChild("groupName").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 matchesModelArrayList.clear();
