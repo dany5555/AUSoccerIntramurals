@@ -48,7 +48,7 @@ public class StandingsFragment extends Fragment {
         standingsAdapter = new StandingsAdapter(getActivity(), standingsModelArrayList);
         standingsList.setAdapter(standingsAdapter);
 
-        standings.orderByChild("points").addValueEventListener(new ValueEventListener() {
+        standings.orderByChild("position").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 standingsModelArrayList.clear();

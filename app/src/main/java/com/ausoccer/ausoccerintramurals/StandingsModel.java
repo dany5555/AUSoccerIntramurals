@@ -6,18 +6,20 @@ package com.ausoccer.ausoccerintramurals;
 
 public class StandingsModel {
 
-    String teamLogoUrl, teamName, gamesPlayed, goalDifference, points;
+    private String teamLogoUrl, teamName, gamesPlayed, goalDifference, points;
+    private int position;
 
     public StandingsModel() {
 
     }
 
-    public StandingsModel(String teamLogoUrl, String teamName, String gamesPlayed, String goalDifference, String points) {
+    public StandingsModel(String teamLogoUrl, String teamName, String gamesPlayed, String goalDifference, String points, int position) {
         this.teamLogoUrl = teamLogoUrl;
         this.teamName = teamName;
         this.gamesPlayed = gamesPlayed;
         this.goalDifference = goalDifference;
         this.points = points;
+        this.position = position;
     }
 
     public String getTeamLogoUrl() {
@@ -58,5 +60,13 @@ public class StandingsModel {
 
     public void setPoints(String points) {
         this.points = points;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

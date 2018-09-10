@@ -52,6 +52,7 @@ public class StandingsAdapter extends BaseAdapter {
         TextView matchesPlayed = view.findViewById(R.id.matches_played);
         TextView goalDifference = view.findViewById(R.id.goal_difference);
         TextView points = view.findViewById(R.id.points);
+        TextView position = view.findViewById(R.id.position);
         ImageView teamLogo = view.findViewById(R.id.team_logo);
 
         standingsModel = (StandingsModel) this.getItem(i);
@@ -60,6 +61,7 @@ public class StandingsAdapter extends BaseAdapter {
         matchesPlayed.setText(standingsModel.getGamesPlayed());
         goalDifference.setText(standingsModel.getGoalDifference());
         points.setText(standingsModel.getPoints());
+        position.setText(String.valueOf(standingsModel.getPosition()));
 
         Picasso.with(context).load(standingsModel.getTeamLogoUrl()).error(R.drawable.empty_team_logo).into(teamLogo);
 
