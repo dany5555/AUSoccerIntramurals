@@ -1,0 +1,66 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ausoccer.ausoccerintramurals.StandingsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/header_layout"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/group_name">
+
+            <TextView
+                android:id="@+id/matches_played_header"
+                android:layout_width="30dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/goal_difference_header"
+                android:textColor="@color/black"
+                android:layout_marginRight="20dp"
+                android:text="P"/>
+
+            <TextView
+                android:id="@+id/goal_difference_header"
+                android:layout_width="30dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/points_header"
+                android:textColor="@color/black"
+                android:layout_marginRight="20dp"
+                android:text="+/-"/>
+
+            <TextView
+                android:id="@+id/points_header"
+                android:layout_width="30dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"
+                android:text="Pts"/>
+
+
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/standings_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_layout"
+            android:layout_marginTop="10dp">
+
+        </ListView>
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

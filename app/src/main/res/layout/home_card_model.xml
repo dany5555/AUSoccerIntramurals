@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="196dp"
+    android:background="@color/backgroundColor"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+android:layout_centerVertical="true"        android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/image_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"/>
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="AU Soccer intramurals kick off Sept. 5th"
+            android:maxLines="2"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="120dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp"/>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
