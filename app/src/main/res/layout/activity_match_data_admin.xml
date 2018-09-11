@@ -1,0 +1,1188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ausoccer.ausoccerintramurals.MatchDataActivityAdmin">
+
+    <RelativeLayout
+        android:id="@+id/match_data_layout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/colorSecondaryLight">
+
+        <RelativeLayout
+            android:id="@+id/home_layout"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/home_team_logo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/empty_team_logo"
+                android:layout_centerInParent="true"/>
+
+            <TextView
+                android:id="@+id/home_team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:layout_below="@+id/home_team_logo"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:text="Barcelona"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/match_info_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/home_layout"
+            android:layout_toStartOf="@+id/away_layout">
+
+            <TextView
+                android:id="@+id/group_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GROUP A"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/match_date_and_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/line"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:text="WED SEP 05"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/line"
+                android:tint="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/match_time_and_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="7:00 PM"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/away_layout"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/away_team_logo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/empty_team_logo"/>
+
+            <TextView
+                android:id="@+id/away_team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textAlignment="center"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:layout_below="@+id/away_team_logo"
+                android:text="Manchester City" />
+
+        </RelativeLayout>
+
+</RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/game_status_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/match_data_layout"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorAccent"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/game_status_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Game Status"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                />
+
+            <Button
+                android:id="@+id/half_time_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/game_status_textview"
+                android:text="HALF TIME"/>
+
+            <Button
+                android:id="@+id/live_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/half_time_button"
+                android:layout_toEndOf="@+id/half_time_button"
+                android:text="LIVE" />
+
+            <Button
+                android:id="@+id/final_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/live_button"
+                android:layout_toEndOf="@+id/live_button"
+                android:text="FINAL" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/attacking_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/game_status_layout"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorAccent"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/game_events_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="ATTACKING"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/goals_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="GOALS"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                android:layout_below="@id/game_events_textview"/>
+
+            <RelativeLayout
+                android:id="@+id/home_goals_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/goals_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_goals_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_goal_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_goals_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_goal_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_goal_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_goals_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/goals_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_goals_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_goal_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_goals_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_goal_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_goal_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/attempts_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ATTEMPTS"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/home_goals_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/home_attempts_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/attempts_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_attempts_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_attempts_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_attempts_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_attempts_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_attempts_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_attempts_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/attempts_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_attempts_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_attempts_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_attempts_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_attempts_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_attempts_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/on_target_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ON TARGET"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/home_attempts_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/home_on_target_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/on_target_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_on_target_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_on_target_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_on_target_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_on_target_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_on_target_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_on_target_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/on_target_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_on_target_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_on_target_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_on_target_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_on_target_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_on_target_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/off_target_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OFF TARGET"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/home_on_target_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/home_off_target_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/off_target_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_off_target_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_off_target_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_off_target_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_off_target_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_off_target_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_off_target_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/off_target_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_off_target_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_off_target_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_off_target_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_off_target_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_off_target_button"
+                    android:padding="0dp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/blocked_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BLOCKED"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/home_off_target_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/blocked_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/blocked_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_blocked_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_blocked_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_blocked_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_blocked_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_blocked_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_blocked_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/blocked_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_blocked_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_blocked_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_blocked_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_blocked_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_blocked_button"
+                    android:padding="0dp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/against_woodwork_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OFF TARGET"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/blocked_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/home_against_woodwork_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/against_woodwork_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_against_wooodwork_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_against_woodwork_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_against_wooodwork_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_against_woodwork_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_against_woodwork_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_against_woodwork_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/against_woodwork_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_against_woodwork_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_against_woodwork_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_against_woodwork_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_against_woodwork_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_against_woodwork_button"
+                    android:padding="0dp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/corners_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CORNERS"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/home_against_woodwork_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/home_corners_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/corners_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_corners_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_corners_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_corners_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_corners_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_corners_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_corners_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/corners_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_corners_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_corners_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_corners_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_corners_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_corners_button"
+                    android:padding="0dp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/off_sides_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OFF SIDES"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/home_corners_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/home_off_sides_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/off_sides_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_off_sides_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_off_sides_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_off_sides_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_off_sides_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_off_sides_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_off_sides_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/off_sides_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_off_sides_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_off_sides_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_off_sides_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_off_sides_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_off_sides_button"
+                    android:padding="0dp"/>
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/disciplinary_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorAccent"
+            android:padding="16dp"
+            android:layout_below="@id/attacking_layout">
+
+            <TextView
+                android:id="@+id/disciplinary_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DISCIPLINARY"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/yellow_cards_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YELLOW CARDS"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/disciplinary_textview"/>
+
+            <RelativeLayout
+                android:id="@+id/home_yellow_cards_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/yellow_cards_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_yellow_cards_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_yellow_cards_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_yellow_cards_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_yellow_cards_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_yellow_cards_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_yellow_cards_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/yellow_cards_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_yellow_cards_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_yellow_cards_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_yellow_cards_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_yellow_cards_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_yellow_cards_button"
+                    android:padding="0dp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/red_cards_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RED CARDS"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/home_yellow_cards_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/home_red_cards_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/red_cards_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_red_cards_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_red_cards_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_red_cards_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_red_cards_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_red_cards_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_red_cards_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/red_cards_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_red_cards_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_red_cards_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_red_cards_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_red_cards_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_red_cards_button"
+                    android:padding="0dp"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/fouls_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FOULS COMMITED"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/home_red_cards_layout"/>
+
+            <RelativeLayout
+                android:id="@+id/home_fouls_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@id/fouls_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/home_fouls_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/home_decrease_fouls_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/home_fouls_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/home_increase_fouls_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/home_decrease_fouls_button"
+                    android:padding="0dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/away_fouls_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/fouls_textview"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/away_fouls_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/black"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/away_decrease_fouls_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="0dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/away_fouls_textview"
+                    android:text="-"/>
+
+                <Button
+                    android:id="@+id/away_increase_fouls_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="+"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/away_decrease_fouls_button"
+                    android:padding="0dp"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+

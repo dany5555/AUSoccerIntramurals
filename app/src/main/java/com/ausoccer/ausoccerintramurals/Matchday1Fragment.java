@@ -71,8 +71,33 @@ public class Matchday1Fragment extends Fragment {
                 if (user != null) {
                     matchesModel = new MatchesModel();
                     matchesModel = matchesModelArrayList.get(i);
-                    displayEditDialog(matchesModel.getHomeTeamName(), matchesModel.getAwayTeamName(), matchesModel.getHomeTeamLogoUrl(), matchesModel.getAwayTeamLogoUrl(),
-                            matchesModel.getMatchDateAndResult(), matchesModel.getMatchTimeAndStatus(), matchesModel.getGroupName(), matchesModel.getUid());
+
+                    Intent intent = new Intent(getActivity(), MatchDataActivityAdmin.class);
+
+                    String homeTeamName = matchesModel.getHomeTeamName();
+                    String homeTeamLogoUrl = matchesModel.getHomeTeamLogoUrl();
+                    String awayTeamName = matchesModel.getAwayTeamName();
+                    String awayTeamLogoUrl = matchesModel.getAwayTeamLogoUrl();
+                    String matchDateAndResult = matchesModel.getMatchDateAndResult();
+                    String matchTimeAndStatus = matchesModel.getMatchTimeAndStatus();
+                    String groupName = matchesModel.getGroupName();
+                    String id = matchesModel.getUid();
+
+                    intent.putExtra("homeTeamName", homeTeamName);
+                    intent.putExtra("homeTeamLogo", homeTeamLogoUrl);
+                    intent.putExtra("awayTeamName", awayTeamName);
+                    intent.putExtra("awayTeamLogo", awayTeamLogoUrl);
+                    intent.putExtra("matchDateAndResult", matchDateAndResult);
+                    intent.putExtra("matchTimeAndStatus", matchTimeAndStatus);
+                    intent.putExtra("groupName", groupName);
+                    intent.putExtra("id", id);
+
+
+                    startActivity(intent);
+
+
+                    //displayEditDialog(matchesModel.getHomeTeamName(), matchesModel.getAwayTeamName(), matchesModel.getHomeTeamLogoUrl(), matchesModel.getAwayTeamLogoUrl(),
+                           //matchesModel.getMatchDateAndResult(), matchesModel.getMatchTimeAndStatus(), matchesModel.getGroupName(), matchesModel.getUid());
                 } else {
                     matchesModel = new MatchesModel();
                     matchesModel = matchesModelArrayList.get(i);
@@ -99,7 +124,6 @@ public class Matchday1Fragment extends Fragment {
 
 
                     startActivity(intent);
-                    Toast.makeText(getContext(), "Not signed in. A non signed in activity should start", Toast.LENGTH_SHORT).show();
 
                 }
 
