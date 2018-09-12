@@ -12,6 +12,7 @@ public class MatchesModel {
     String uid;
     String orderMethod;
     String groupName;
+    String liveResult, gameStatus;
 
 
     public MatchesModel() {
@@ -19,7 +20,7 @@ public class MatchesModel {
     }
 
     public MatchesModel(String homeTeamLogoUrl, String awayTeamLogoUrl, String homeTeamName, String awayTeamName, String matchDateAndResult,
-                        String matchTimeAndStatus, String uid, String orderMethod, String groupName) {
+                        String matchTimeAndStatus, String uid, String orderMethod, String groupName, String liveResult, String gameStatus) {
         this.homeTeamLogoUrl = homeTeamLogoUrl;
         this.awayTeamLogoUrl = awayTeamLogoUrl;
         this.homeTeamName = homeTeamName;
@@ -29,6 +30,8 @@ public class MatchesModel {
         this.uid = uid;
         this.orderMethod = orderMethod;
         this.groupName = groupName;
+        this.liveResult = liveResult;
+        this.gameStatus = gameStatus;
 
     }
 
@@ -102,5 +105,21 @@ public class MatchesModel {
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
+    }
+
+    public String getLiveResult() {
+        return liveResult;
+    }
+
+    public void setLiveResult(String liveResult) {
+        this.liveResult = liveResult;
+    }
+
+    public String getGameStatus() {
+        return gameStatus;
+    }
+
+    public void setGameStatus(String gameStatus) {
+        this.gameStatus = gameStatus;
     }
 }

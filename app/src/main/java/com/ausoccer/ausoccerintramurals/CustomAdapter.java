@@ -8,7 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 
 import java.util.ArrayList;
 
@@ -47,12 +50,13 @@ public class CustomAdapter extends BaseAdapter {
         }
 
         TextView title = view.findViewById(R.id.title_text);
-        ImageView imageHodler = view.findViewById(R.id.image_holder);
+        ImageView imageHolder = view.findViewById(R.id.image_holder);
 
         final HomeModel homeModel = (HomeModel) this.getItem(i);
 
         title.setText(homeModel.getTitle());
-        Picasso.with(context).load(homeModel.getUrl()).into(imageHodler);
+        //Picasso.get().load(homeModel.getUrl()).into(imageHolder);
+        Glide.with(context).load(homeModel.getUrl()).transition(withCrossFade()).into(imageHolder);
 
 
         /*view.setOnClickListener(new View.OnClickListener() {

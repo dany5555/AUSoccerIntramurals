@@ -8,7 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 
 import java.util.ArrayList;
 
@@ -63,7 +66,8 @@ public class StandingsAdapter extends BaseAdapter {
         points.setText(standingsModel.getPoints());
         position.setText(String.valueOf(standingsModel.getPosition()));
 
-        Picasso.with(context).load(standingsModel.getTeamLogoUrl()).error(R.drawable.empty_team_logo).into(teamLogo);
+        //Picasso.get().load(standingsModel.getTeamLogoUrl()).error(R.drawable.empty_team_logo).resize(50, 50).centerCrop().into(teamLogo);
+        Glide.with(context).load(standingsModel.getTeamLogoUrl()).transition(withCrossFade()).into(teamLogo);
 
         return view;
     }

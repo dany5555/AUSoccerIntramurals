@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 
 public class MatchDataActivity extends AppCompatActivity {
 
@@ -73,8 +76,10 @@ public class MatchDataActivity extends AppCompatActivity {
         matchTimeAndStatus.setText(getIntent().getStringExtra("matchTimeAndStatus"));
         groupName.setText(getIntent().getStringExtra("groupName"));
 
-        Picasso.with(getApplicationContext()).load(getIntent().getStringExtra("homeTeamLogo")).error(R.drawable.empty_team_logo).into(homeTeamLogo);
-        Picasso.with(getApplicationContext()).load(getIntent().getStringExtra("awayTeamLogo")).error(R.drawable.empty_team_logo).into(awayTeamLogo);
+        //Picasso.get().load(getIntent().getStringExtra("homeTeamLogo")).error(R.drawable.empty_team_logo).into(homeTeamLogo);
+        //Picasso.get().load(getIntent().getStringExtra("awayTeamLogo")).error(R.drawable.empty_team_logo).into(awayTeamLogo);
+        Glide.with(this).load(getIntent().getStringExtra("homeTeamLogo")).transition(withCrossFade()).into(homeTeamLogo);
+        Glide.with(this).load(getIntent().getStringExtra("awayTeamLogo")).transition(withCrossFade()).into(awayTeamLogo);
 
 
 

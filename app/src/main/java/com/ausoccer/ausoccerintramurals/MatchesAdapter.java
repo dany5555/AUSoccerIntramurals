@@ -8,7 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 import java.util.ArrayList;
 
@@ -67,8 +69,10 @@ public class MatchesAdapter extends BaseAdapter {
             matchTimeAndStatus.setText(matchesModel.getMatchTimeAndStatus());
             groupName.setText(matchesModel.getGroupName());
 
-            Picasso.with(context).load(matchesModel.getHomeTeamLogoUrl()).error(R.drawable.empty_team_logo).into(homeTeamLogo);
-            Picasso.with(context).load(matchesModel.getAwayTeamLogoUrl()).error(R.drawable.empty_team_logo).into(awayTeamLogo);
+            //Picasso.get().load(matchesModel.getHomeTeamLogoUrl()).error(R.drawable.empty_team_logo).resize(50, 50).centerCrop().into(homeTeamLogo);
+            //Picasso.get().load(matchesModel.getAwayTeamLogoUrl()).error(R.drawable.empty_team_logo).resize(50, 50).centerCrop().into(awayTeamLogo);
+        Glide.with(context).load(matchesModel.getHomeTeamLogoUrl()).transition(withCrossFade()).into(homeTeamLogo);
+        Glide.with(context).load(matchesModel.getAwayTeamLogoUrl()).transition(withCrossFade()).into(awayTeamLogo);
 
 
 
