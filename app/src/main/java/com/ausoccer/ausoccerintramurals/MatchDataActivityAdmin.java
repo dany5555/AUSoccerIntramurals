@@ -1,10 +1,14 @@
 package com.ausoccer.ausoccerintramurals;
 
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,7 +19,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -25,11 +28,20 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
     public FirebaseDatabase database;
     public DatabaseReference currentMatchRef;
     MatchesModel matchesModel;
-    ArrayList<MatchesModel> matchesModelArrayList = new ArrayList<>();
 
     RelativeLayout liveMatchLayout, notPlayedMatchLayout, finalMatchLayout;
 
     TextView liveResult, gameStatus, matchNumber;
+
+    Button lineupsButton, firstHalfButton, halfTimeButton, secondHalfButton, finalButton;
+    private Chronometer timer;
+    private boolean running;
+    private long pauseOffset;
+
+
+    private int mMinute = 0;
+    private int mTicks = -2;
+
 
 
 
@@ -38,31 +50,12 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
     ImageView homeTeamLogo, awayTeamLogo;
 
     // Game status objects.
-    Button halfTimeButton, liveButton, finalButton;
 
     // Goals objects.
     Button homeDecreaseGoalButton, homeIncreaseGoalButton, awayDecreaseGoalButton, awayIncreaseGoalButton;
     TextView homeGoals, awayGoals;
 
-    // Attempts objects.
-    Button homeDecreaseAttemptsButton, homeIncreaseAttemtpsButton, awayDecreaseAttemptsButton, awayIncreaseAttemtpsButton;
-    TextView homeAttempts, awayAttempts;
 
-    // On target objects.
-    Button homeIncreaseOnTargetButton, homeDecreaseOnTargetButton, awayIncreaseOnTargetButton, awayDecreaseOnTargetButton;
-    TextView homeOnTarget, awayOnTarget;
-
-    // Off target objects.
-    Button homeDecreaseOffTargetButton, homeIncreaseOffTargetButton, awayDecreaseOffTargetButton, awayIncreaseOffTargetButton;
-    TextView homeOffTarget, awayOffTarget;
-
-    // Blocked objects.
-    Button homeDecreaseBlockedButton, homeIncreaseBlockButton, awayDecreaseBlockedButton, awayIncreaseBlockButton;
-    TextView homeBlocked, awayBlocked;
-
-    // Against woodwork objects.
-    Button homeDecreaseAgainstWoodworkButton, homeIncreaseAgainstWoodworkButton, awayDecreaseAgainstWoodworkButton, awayIncreaseAgainstWoodworkButton;
-    TextView homeAgainstWoodwork, awayAgainstWoodwork;
 
     // Corners objects.
     Button homeDecreaseCornersButton, homeIncreaseCornersButton, awayDecreaseCornersButton, awayIncreaseCornersButton;
@@ -94,6 +87,102 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_data_admin);
 
+        lineupsButton = findViewById(R.id.lineups_button);
+        firstHalfButton = findViewById(R.id.first_half_button);
+        halfTimeButton = findViewById(R.id.half_time_button);
+        secondHalfButton = findViewById(R.id.second_half_button);
+        finalButton = findViewById(R.id.final_button);
+
+        timer = findViewById(R.id.timer);
+        timer.setBase(SystemClock.elapsedRealtime());
+
+        timer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                gameStatus.setText(timer.getText());
+                currentMatchRef.child("gameStatus").setValue(gameStatus.getText().toString());
+            }
+        });
+
+        lineupsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notPlayedMatchLayout.setVisibility(View.GONE);
+                liveMatchLayout.setVisibility(View.VISIBLE);
+                gameStatus.setText("LINEUPS");
+                currentMatchRef.child("gameStatus").setValue(gameStatus.getText().toString());
+
+            }
+        });
+
+
+
+        firstHalfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!running) {
+                    timer.setBase(SystemClock.elapsedRealtime());
+                    timer.start();
+                    running = true;
+
+
+                }
+
+            }
+        });
+
+
+
+        halfTimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (running) {
+                    timer.stop();
+                    timer.setBase(SystemClock.elapsedRealtime());
+                    pauseOffset = 1200000;
+                    running = false;
+                    gameStatus.setText("HALF TIME");
+                    currentMatchRef.child("gameStatus").setValue(gameStatus.getText().toString());
+
+                }
+
+
+            }
+        });
+
+        secondHalfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!running) {
+                    timer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
+                    timer.start();
+                    running = true;
+
+
+                }
+            }
+        });
+
+        finalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (running) {
+                    timer.stop();
+                    timer.setBase(SystemClock.elapsedRealtime());
+                    running = false;
+                    gameStatus.setText("FINAL");
+                    currentMatchRef.child("gameStatus").setValue(gameStatus.getText().toString());
+
+                }
+            }
+        });
+
+
+
+
+
+
+
         matchesModel = new MatchesModel();
 
         liveResult = findViewById(R.id.live_result);
@@ -102,7 +191,7 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
 
         matchId = getIntent().getStringExtra("id");
         database = FirebaseDatabase.getInstance();
-        currentMatchRef = database.getReference("Matches").child("Matchday1").child(matchId);
+        currentMatchRef = database.getReference("Matches").child(getIntent().getStringExtra("matchday")).child(matchId);
 
         Log.v("id", matchId);
 
@@ -152,21 +241,11 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
         });
 
         // Game status objects.
-        halfTimeButton = findViewById(R.id.half_time_button);
-        liveButton = findViewById(R.id.live_button);
-        finalButton = findViewById(R.id.final_button);
 
         liveMatchLayout = findViewById(R.id.match_info_layout_live);
         notPlayedMatchLayout = findViewById(R.id.match_info_layout_not_played);
 
-        liveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                notPlayedMatchLayout.setVisibility(View.GONE);
-                liveMatchLayout.setVisibility(View.VISIBLE);
 
-            }
-        });
 
         // Goals objects.
         homeDecreaseGoalButton = findViewById(R.id.home_decrease_goal_button);
@@ -197,8 +276,9 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
                 if (currentHomeGoals >= 0) {
                     currentHomeGoals += 1;
                     homeGoals.setText(Integer.toString(currentHomeGoals));
-                }
 
+                }
+                Log.v("sd", "time: " + gameStatus.getText().toString());
                 currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + "  -  " + awayGoals.getText().toString());
 
 
@@ -248,7 +328,7 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
 
 
 
-        //homeTeamName.setText(getIntent().getStringExtra("homeTeamName"));
+        homeTeamName.setText(getIntent().getStringExtra("homeTeamName"));
         awayTeamName.setText(getIntent().getStringExtra("awayTeamName"));
         matchDateAndResult.setText(getIntent().getStringExtra("matchDateAndResult"));
         matchTimeAndStatus.setText(getIntent().getStringExtra("matchTimeAndStatus"));
@@ -263,4 +343,6 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
 
 
     }
+
+
 }

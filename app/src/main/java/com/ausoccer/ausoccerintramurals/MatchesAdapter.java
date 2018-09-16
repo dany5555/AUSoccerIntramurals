@@ -84,5 +84,13 @@ public class MatchesAdapter extends BaseAdapter {
 
     }
 
+    // This method fixes the issue of having the listview scroll all the way to the top when DB is updated.
+    public void refill(ArrayList<MatchesModel> matchesModelArrayList) {
+        matchesModelArrayList.clear();
+        matchesModelArrayList.addAll(matchesModelArrayList);
+        notifyDataSetChanged();
+
+    }
+
 
 }

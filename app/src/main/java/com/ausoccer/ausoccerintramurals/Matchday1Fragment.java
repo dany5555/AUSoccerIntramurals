@@ -36,6 +36,7 @@ public class Matchday1Fragment extends Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference matchday1 = database.getReference("Matches").child("Matchday1");
+    String matchday = "Matchday1";
 
     EditText editHomeTeamName, editAwayTeamName, editHomeTeamLogoUrl, editAwayTeamLogoUrl, editMatchDate, editMatchTime, editGroupName;
 
@@ -91,6 +92,7 @@ public class Matchday1Fragment extends Fragment {
                     intent.putExtra("matchTimeAndStatus", matchTimeAndStatus);
                     intent.putExtra("groupName", groupName);
                     intent.putExtra("id", id);
+                    intent.putExtra("matchday", matchday);
 
 
                     startActivity(intent);
@@ -123,6 +125,8 @@ public class Matchday1Fragment extends Fragment {
                     intent.putExtra("id", id);
 
 
+
+
                     startActivity(intent);
 
                 }
@@ -133,16 +137,25 @@ public class Matchday1Fragment extends Fragment {
         matchday1.orderByChild("groupName").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                matchesModelArrayList.clear();
+                //matchesModelArrayList.clear();
+
+                if (listView.getAdapter() == null) {
+                    MatchesAdapter adapter2 = new MatchesAdapter(getActivity(), matchesModelArrayList);
+                    listView.setAdapter(adapter2);
+                } else {
+                    ((MatchesAdapter)listView.getAdapter()).refill(matchesModelArrayList);
+                }
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    MatchesModel matchesModel = ds.getValue(MatchesModel.class);
+                    matchesModel = ds.getValue(MatchesModel.class);
                     //matchesModel.setOrderMethod(matchesModel.getMatchDateAndResult() + " " + matchesModel.getMatchTimeAndStatus());
                     matchesModelArrayList.add(matchesModel);
                 }
 
-                listView.setAdapter(matchesAdapter);
-                matchesAdapter.notifyDataSetChanged();
+
+
+                //listView.setAdapter(matchesAdapter);
+                //matchesAdapter.notifyDataSetChanged();
 
             }
 

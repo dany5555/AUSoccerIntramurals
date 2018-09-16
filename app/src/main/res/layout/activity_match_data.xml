@@ -47,7 +47,9 @@
           android:layout_alignParentBottom="true"
           android:layout_alignParentTop="true"
           android:layout_toEndOf="@+id/home_layout"
-          android:layout_toStartOf="@+id/away_layout">
+          android:layout_toStartOf="@+id/away_layout"
+          android:layout_toRightOf="@+id/home_layout"
+          android:layout_toLeftOf="@+id/away_layout">
 
          <TextView
              android:id="@+id/group_name"
