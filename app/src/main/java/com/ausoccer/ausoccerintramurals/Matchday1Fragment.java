@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -43,6 +43,7 @@ public class Matchday1Fragment extends Fragment {
 
 
 
+
     ArrayList<MatchesModel> matchesModelArrayList = new ArrayList<>();
 
 
@@ -61,6 +62,7 @@ public class Matchday1Fragment extends Fragment {
 
 
 
+
         matchesModel = new MatchesModel();
         matchesAdapter = new MatchesAdapter(getActivity(), matchesModelArrayList);
         listView.setAdapter(matchesAdapter);
@@ -75,57 +77,26 @@ public class Matchday1Fragment extends Fragment {
 
                     Intent intent = new Intent(getActivity(), MatchDataActivityAdmin.class);
 
-                    String homeTeamName = matchesModel.getHomeTeamName();
-                    String homeTeamLogoUrl = matchesModel.getHomeTeamLogoUrl();
-                    String awayTeamName = matchesModel.getAwayTeamName();
-                    String awayTeamLogoUrl = matchesModel.getAwayTeamLogoUrl();
-                    String matchDateAndResult = matchesModel.getMatchDateAndResult();
-                    String matchTimeAndStatus = matchesModel.getMatchTimeAndStatus();
-                    String groupName = matchesModel.getGroupName();
                     String id = matchesModel.getUid();
 
-                    intent.putExtra("homeTeamName", homeTeamName);
-                    intent.putExtra("homeTeamLogo", homeTeamLogoUrl);
-                    intent.putExtra("awayTeamName", awayTeamName);
-                    intent.putExtra("awayTeamLogo", awayTeamLogoUrl);
-                    intent.putExtra("matchDateAndResult", matchDateAndResult);
-                    intent.putExtra("matchTimeAndStatus", matchTimeAndStatus);
-                    intent.putExtra("groupName", groupName);
                     intent.putExtra("id", id);
                     intent.putExtra("matchday", matchday);
-
 
                     startActivity(intent);
 
 
                     //displayEditDialog(matchesModel.getHomeTeamName(), matchesModel.getAwayTeamName(), matchesModel.getHomeTeamLogoUrl(), matchesModel.getAwayTeamLogoUrl(),
-                           //matchesModel.getMatchDateAndResult(), matchesModel.getMatchTimeAndStatus(), matchesModel.getGroupName(), matchesModel.getUid());
+                           //matchesModel.getMatchDate(), matchesModel.getMatchTime(), matchesModel.getMatchNumber(), matchesModel.getUid());
                 } else {
                     matchesModel = new MatchesModel();
                     matchesModel = matchesModelArrayList.get(i);
 
-                    String homeTeamName = matchesModel.getHomeTeamName();
-                    String homeTeamLogoUrl = matchesModel.getHomeTeamLogoUrl();
-                    String awayTeamName = matchesModel.getAwayTeamName();
-                    String awayTeamLogoUrl = matchesModel.getAwayTeamLogoUrl();
-                    String matchDateAndResult = matchesModel.getMatchDateAndResult();
-                    String matchTimeAndStatus = matchesModel.getMatchTimeAndStatus();
-                    String groupName = matchesModel.getGroupName();
                     String id = matchesModel.getUid();
 
                     Intent intent = new Intent(getActivity(), MatchDataActivity.class);
 
-                    intent.putExtra("homeTeamName", homeTeamName);
-                    intent.putExtra("homeTeamLogo", homeTeamLogoUrl);
-                    intent.putExtra("awayTeamName", awayTeamName);
-                    intent.putExtra("awayTeamLogo", awayTeamLogoUrl);
-                    intent.putExtra("matchDateAndResult", matchDateAndResult);
-                    intent.putExtra("matchTimeAndStatus", matchTimeAndStatus);
-                    intent.putExtra("groupName", groupName);
+                    intent.putExtra("matchday", matchday);
                     intent.putExtra("id", id);
-
-
-
 
                     startActivity(intent);
 
@@ -134,7 +105,7 @@ public class Matchday1Fragment extends Fragment {
             }
         });
 
-        matchday1.orderByChild("groupName").addValueEventListener(new ValueEventListener() {
+        matchday1.orderByChild("matchNumber").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //matchesModelArrayList.clear();
@@ -148,8 +119,20 @@ public class Matchday1Fragment extends Fragment {
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     matchesModel = ds.getValue(MatchesModel.class);
-                    //matchesModel.setOrderMethod(matchesModel.getMatchDateAndResult() + " " + matchesModel.getMatchTimeAndStatus());
+                    String status = matchesModel.getMatchStatus();
                     matchesModelArrayList.add(matchesModel);
+
+                    //Log.v("status", "Status: " + status);
+                    /*if (status.equals("NOT PLAYED")) {
+                        liveLayout.setVisibility(View.GONE);
+                        notPlayedLayout.setVisibility(View.VISIBLE);
+                        matchesModelArrayList.add(matchesModel);
+
+                    } else {
+                        liveLayout.setVisibility(View.VISIBLE);
+                        notPlayedLayout.setVisibility(View.GONE);
+                        matchesModelArrayList.add(matchesModel);
+                    }*/
                 }
 
 
@@ -217,17 +200,16 @@ public class Matchday1Fragment extends Fragment {
         final String newAwayTeamLogoUrl = editAwayTeamLogoUrl.getText().toString().trim();
         final String newMatchDate = editMatchDate.getText().toString().trim();
         final String newMatchTime = editMatchTime.getText().toString().trim();
-        final String newGroupName = editGroupName.getText().toString().trim();
+        //final int newMatchNumber = editGroupName.getText(;
 
         matchesModel.setHomeTeamName(newHomeTeamName);
         matchesModel.setAwayTeamName(newAwayTeamName);
         matchesModel.setHomeTeamLogoUrl(newHomeTeamLogoUrl);
         matchesModel.setAwayTeamLogoUrl(newAwayTeamLogoUrl);
-        matchesModel.setMatchDateAndResult(newMatchDate);
-        matchesModel.setMatchTimeAndStatus(newMatchTime);
-        matchesModel.setOrderMethod(newMatchDate + " " + newMatchTime);
+        matchesModel.setMatchDate(newMatchDate);
+        matchesModel.setMatchTime(newMatchTime);
         matchesModel.setUid(uid);
-        matchesModel.setGroupName(newGroupName);
+        //matchesModel.setMatchNumber(newMatchNumber);
 
         matchday1.child(uid).setValue(matchesModel);
 

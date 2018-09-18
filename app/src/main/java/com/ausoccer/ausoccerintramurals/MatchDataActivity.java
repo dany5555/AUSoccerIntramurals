@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
+
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 
@@ -32,9 +32,9 @@ public class MatchDataActivity extends AppCompatActivity {
         awayTeamName = findViewById(R.id.away_team_name);
         homeTeamLogo = findViewById(R.id.home_team_logo);
         awayTeamLogo = findViewById(R.id.away_team_logo);
-        matchDateAndResult = findViewById(R.id.match_date_and_result);
-        matchTimeAndStatus = findViewById(R.id.match_time_and_status);
-        groupName = findViewById(R.id.group_name);
+        matchDateAndResult = findViewById(R.id.model_match_date);
+        matchTimeAndStatus = findViewById(R.id.model_match_time);
+        groupName = findViewById(R.id.model_match_number);
 
         matchDataTabLayout = findViewById(R.id.match_data_tab_layout);
         matchDataTabLayout.addTab(matchDataTabLayout.newTab().setText("LINEUPS"));
@@ -72,9 +72,9 @@ public class MatchDataActivity extends AppCompatActivity {
         super.onStart();
         homeTeamName.setText(getIntent().getStringExtra("homeTeamName"));
         awayTeamName.setText(getIntent().getStringExtra("awayTeamName"));
-        matchDateAndResult.setText(getIntent().getStringExtra("matchDateAndResult"));
-        matchTimeAndStatus.setText(getIntent().getStringExtra("matchTimeAndStatus"));
-        groupName.setText(getIntent().getStringExtra("groupName"));
+        matchDateAndResult.setText(getIntent().getStringExtra("matchDate"));
+        matchTimeAndStatus.setText(getIntent().getStringExtra("matchTime"));
+        groupName.setText(getIntent().getStringExtra("matchNumber"));
 
         //Picasso.get().load(getIntent().getStringExtra("homeTeamLogo")).error(R.drawable.empty_team_logo).into(homeTeamLogo);
         //Picasso.get().load(getIntent().getStringExtra("awayTeamLogo")).error(R.drawable.empty_team_logo).into(awayTeamLogo);

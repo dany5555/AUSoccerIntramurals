@@ -14,7 +14,7 @@
             android:paddingTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/group_name">
+            android:layout_below="@id/model_match_number">
 
             <TextView
                 android:id="@+id/matches_played_header"

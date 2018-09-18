@@ -74,18 +74,18 @@ public class Matchday4Fragment extends Fragment {
                     String homeTeamLogoUrl = matchesModel.getHomeTeamLogoUrl();
                     String awayTeamName = matchesModel.getAwayTeamName();
                     String awayTeamLogoUrl = matchesModel.getAwayTeamLogoUrl();
-                    String matchDateAndResult = matchesModel.getMatchDateAndResult();
-                    String matchTimeAndStatus = matchesModel.getMatchTimeAndStatus();
-                    String groupName = matchesModel.getGroupName();
+                    String matchDateAndResult = matchesModel.getMatchDate();
+                    String matchTimeAndStatus = matchesModel.getMatchTime();
+                    int matchNumber = matchesModel.getMatchNumber();
                     String id = matchesModel.getUid();
 
                     intent.putExtra("homeTeamName", homeTeamName);
                     intent.putExtra("homeTeamLogo", homeTeamLogoUrl);
                     intent.putExtra("awayTeamName", awayTeamName);
                     intent.putExtra("awayTeamLogo", awayTeamLogoUrl);
-                    intent.putExtra("matchDateAndResult", matchDateAndResult);
-                    intent.putExtra("matchTimeAndStatus", matchTimeAndStatus);
-                    intent.putExtra("groupName", groupName);
+                    intent.putExtra("matchDate", matchDateAndResult);
+                    intent.putExtra("matchTime", matchTimeAndStatus);
+                    intent.putExtra("matchNumber", matchNumber);
                     intent.putExtra("id", id);
                     intent.putExtra("matchday", matchday);
 
@@ -94,7 +94,7 @@ public class Matchday4Fragment extends Fragment {
 
 
                     //displayEditDialog(matchesModel.getHomeTeamName(), matchesModel.getAwayTeamName(), matchesModel.getHomeTeamLogoUrl(), matchesModel.getAwayTeamLogoUrl(),
-                    //matchesModel.getMatchDateAndResult(), matchesModel.getMatchTimeAndStatus(), matchesModel.getGroupName(), matchesModel.getUid());
+                    //matchesModel.getMatchDate(), matchesModel.getMatchTime(), matchesModel.getMatchNumber(), matchesModel.getUid());
                 } else {
                     matchesModel = new MatchesModel();
                     matchesModel = matchesModelArrayList.get(i);
@@ -103,9 +103,9 @@ public class Matchday4Fragment extends Fragment {
                     String homeTeamLogoUrl = matchesModel.getHomeTeamLogoUrl();
                     String awayTeamName = matchesModel.getAwayTeamName();
                     String awayTeamLogoUrl = matchesModel.getAwayTeamLogoUrl();
-                    String matchDateAndResult = matchesModel.getMatchDateAndResult();
-                    String matchTimeAndStatus = matchesModel.getMatchTimeAndStatus();
-                    String groupName = matchesModel.getGroupName();
+                    String matchDateAndResult = matchesModel.getMatchDate();
+                    String matchTimeAndStatus = matchesModel.getMatchTime();
+                    int matchNumber = matchesModel.getMatchNumber();
                     String id = matchesModel.getUid();
 
                     Intent intent = new Intent(getActivity(), MatchDataActivity.class);
@@ -114,9 +114,9 @@ public class Matchday4Fragment extends Fragment {
                     intent.putExtra("homeTeamLogo", homeTeamLogoUrl);
                     intent.putExtra("awayTeamName", awayTeamName);
                     intent.putExtra("awayTeamLogo", awayTeamLogoUrl);
-                    intent.putExtra("matchDateAndResult", matchDateAndResult);
-                    intent.putExtra("matchTimeAndStatus", matchTimeAndStatus);
-                    intent.putExtra("groupName", groupName);
+                    intent.putExtra("matchDate", matchDateAndResult);
+                    intent.putExtra("matchTime", matchTimeAndStatus);
+                    intent.putExtra("matchNumber", matchNumber);
                     intent.putExtra("id", id);
 
 
@@ -129,18 +129,25 @@ public class Matchday4Fragment extends Fragment {
             }
         });
 
-        matchday4.addValueEventListener(new ValueEventListener() {
+        matchday4.orderByChild("matchNumber").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                matchesModelArrayList.clear();
+                //matchesModelArrayList.clear();
+
+                if (listView.getAdapter() == null) {
+                    MatchesAdapter adapter2 = new MatchesAdapter(getActivity(), matchesModelArrayList);
+                    listView.setAdapter(adapter2);
+                } else {
+                    ((MatchesAdapter)listView.getAdapter()).refill(matchesModelArrayList);
+                }
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     MatchesModel matchesModel = ds.getValue(MatchesModel.class);
                     matchesModelArrayList.add(matchesModel);
                 }
 
-                listView.setAdapter(matchesAdapter);
-                matchesAdapter.notifyDataSetChanged();
+                //listView.setAdapter(matchesAdapter);
+                //matchesAdapter.notifyDataSetChanged();
 
             }
 

@@ -31,7 +31,7 @@ public class MatchesFragment extends Fragment {
     ViewPager viewPager;
     com.ausoccer.ausoccerintramurals.PagerAdapter pagerAdapter;
 
-    EditText homeTeamNameInput, awayTeamNameInput, homeTeamLogoUrlInput, awayTeamLogoUrlInput, matchDateInput, matchTimeInput, groupNameInput;
+    EditText homeTeamNameInput, awayTeamNameInput, homeTeamLogoUrlInput, awayTeamLogoUrlInput, matchDateInput, matchTimeInput, matchNumberInput;
     FloatingActionButton addMatchFabButton;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -75,10 +75,10 @@ public class MatchesFragment extends Fragment {
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 3"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 4"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 5"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 6"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 7"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 8"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 9"));
-        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 10"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("QUARTER-FINALS"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("SEMI-FINALS"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("FINAL"));
@@ -133,7 +133,7 @@ public class MatchesFragment extends Fragment {
             awayTeamLogoUrlInput = d.findViewById(R.id.away_team_logo_url);
             matchDateInput = d.findViewById(R.id.match_date);
             matchTimeInput = d.findViewById(R.id.match_time);
-            groupNameInput = d.findViewById(R.id.group_name);
+            matchNumberInput = d.findViewById(R.id.model_match_number);
             Button submitMatchButton = d.findViewById(R.id.submit_match_button);
 
             submitMatchButton.setOnClickListener(new View.OnClickListener() {
@@ -145,11 +145,11 @@ public class MatchesFragment extends Fragment {
                     String awayTeamLogoUrl = awayTeamLogoUrlInput.getText().toString();
                     String matchDate = matchDateInput.getText().toString();
                     String matchTime = matchTimeInput.getText().toString();
-                    String groupName = groupNameInput.getText().toString();
+                    String matchNumber = matchNumberInput.getText().toString();
 
 
 
-                    if (TextUtils.isEmpty(groupName)) {
+                    if (TextUtils.isEmpty(matchNumber)) {
                         Toast.makeText(getContext(), "Please enter group name", Toast.LENGTH_SHORT).show();
                         return;
 
@@ -197,10 +197,9 @@ public class MatchesFragment extends Fragment {
                     matchesModel.setAwayTeamName(awayTeamName);
                     matchesModel.setHomeTeamLogoUrl(homeTeamLogoUrl);
                     matchesModel.setAwayTeamLogoUrl(awayTeamLogoUrl);
-                    matchesModel.setMatchDateAndResult(matchDate);
-                    matchesModel.setMatchTimeAndStatus(matchTime);
-                    matchesModel.setOrderMethod(matchDate + " " + matchTime);
-                    matchesModel.setGroupName(groupName);
+                    matchesModel.setMatchDate(matchDate);
+                    matchesModel.setMatchTime(matchTime);
+                    matchesModel.setMatchNumber(Integer.valueOf(matchNumber));
 
 
                     matchesModel.setUid(matchday1.push().getKey());

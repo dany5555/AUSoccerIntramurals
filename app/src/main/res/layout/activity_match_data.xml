@@ -52,7 +52,7 @@
           android:layout_toLeftOf="@+id/away_layout">
 
          <TextView
-             android:id="@+id/group_name"
+             android:id="@+id/model_match_number"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:text="GROUP A"
@@ -62,7 +62,7 @@
              android:layout_marginTop="10dp"/>
 
          <TextView
-             android:id="@+id/match_date_and_result"
+             android:id="@+id/model_match_date"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_above="@id/line"
@@ -81,7 +81,7 @@
              android:tint="@color/colorPrimaryDark" />
 
          <TextView
-             android:id="@+id/match_time_and_status"
+             android:id="@+id/model_match_time"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_below="@id/line"

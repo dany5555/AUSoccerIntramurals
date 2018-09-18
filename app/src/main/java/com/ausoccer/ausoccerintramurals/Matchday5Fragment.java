@@ -53,18 +53,25 @@ public class Matchday5Fragment extends Fragment {
         matchesAdapter = new MatchesAdapter(getActivity(), matchesModelArrayList);
         listView.setAdapter(matchesAdapter);
 
-        matchday5.addValueEventListener(new ValueEventListener() {
+        matchday5.orderByChild("matchNumber").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                matchesModelArrayList.clear();
+                //matchesModelArrayList.clear();
+
+                if (listView.getAdapter() == null) {
+                    MatchesAdapter adapter2 = new MatchesAdapter(getActivity(), matchesModelArrayList);
+                    listView.setAdapter(adapter2);
+                } else {
+                    ((MatchesAdapter)listView.getAdapter()).refill(matchesModelArrayList);
+                }
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     MatchesModel matchesModel = ds.getValue(MatchesModel.class);
                     matchesModelArrayList.add(matchesModel);
                 }
 
-                listView.setAdapter(matchesAdapter);
-                matchesAdapter.notifyDataSetChanged();
+               // listView.setAdapter(matchesAdapter);
+                //matchesAdapter.notifyDataSetChanged();
 
             }
 

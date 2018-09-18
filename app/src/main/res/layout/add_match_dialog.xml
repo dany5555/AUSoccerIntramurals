@@ -12,7 +12,7 @@
         android:textSize="20sp"
         android:textAlignment="center"/>
     <EditText
-        android:id="@+id/group_name"
+        android:id="@+id/model_match_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Group"/>
