@@ -333,7 +333,7 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
                     homeGoals.setText(Integer.toString(currentHomeGoals));
                 }
 
-                currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + "  -  " + awayGoals.getText().toString());
+                currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + " - " + awayGoals.getText().toString());
             }
         });
 
@@ -346,7 +346,7 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
 
                 }
                 Log.v("sd", "time: " + liveStatus.getText().toString());
-                currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + "  -  " + awayGoals.getText().toString());
+                currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + " - " + awayGoals.getText().toString());
 
 
             }
@@ -363,7 +363,7 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
                     awayGoals.setText(Integer.toString(currentAwayGoals));
                 }
 
-                currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + "  -  " + awayGoals.getText().toString());
+                currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + " - " + awayGoals.getText().toString());
 
 
             }
@@ -377,7 +377,7 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
                     awayGoals.setText(Integer.toString(currentAwayGoals));
                 }
 
-                currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + "  -  " + awayGoals.getText().toString());
+                currentMatchRef.child("liveResult").setValue(homeGoals.getText().toString() + " - " + awayGoals.getText().toString());
 
             }
         });

@@ -69,22 +69,10 @@ public class Matchday2Fragment extends Fragment {
 
                     Intent intent = new Intent(getActivity(), MatchDataActivityAdmin.class);
 
-                    String homeTeamName = matchesModel.getHomeTeamName();
-                    String homeTeamLogoUrl = matchesModel.getHomeTeamLogoUrl();
-                    String awayTeamName = matchesModel.getAwayTeamName();
-                    String awayTeamLogoUrl = matchesModel.getAwayTeamLogoUrl();
-                    String matchDateAndResult = matchesModel.getMatchDate();
-                    String matchTimeAndStatus = matchesModel.getMatchTime();
-                    int matchNumber = matchesModel.getMatchNumber();
+
                     String id = matchesModel.getUid();
 
-                    intent.putExtra("homeTeamName", homeTeamName);
-                    intent.putExtra("homeTeamLogo", homeTeamLogoUrl);
-                    intent.putExtra("awayTeamName", awayTeamName);
-                    intent.putExtra("awayTeamLogo", awayTeamLogoUrl);
-                    intent.putExtra("matchDate", matchDateAndResult);
-                    intent.putExtra("matchTime", matchTimeAndStatus);
-                    intent.putExtra("matchNumber", matchNumber);
+
                     intent.putExtra("id", id);
                     intent.putExtra("matchday", matchday);
 
@@ -98,28 +86,12 @@ public class Matchday2Fragment extends Fragment {
                     matchesModel = new MatchesModel();
                     matchesModel = matchesModelArrayList.get(i);
 
-                    String homeTeamName = matchesModel.getHomeTeamName();
-                    String homeTeamLogoUrl = matchesModel.getHomeTeamLogoUrl();
-                    String awayTeamName = matchesModel.getAwayTeamName();
-                    String awayTeamLogoUrl = matchesModel.getAwayTeamLogoUrl();
-                    String matchDateAndResult = matchesModel.getMatchDate();
-                    String matchTimeAndStatus = matchesModel.getMatchTime();
-                    int matchNumber = matchesModel.getMatchNumber();
                     String id = matchesModel.getUid();
 
                     Intent intent = new Intent(getActivity(), MatchDataActivity.class);
 
-                    intent.putExtra("homeTeamName", homeTeamName);
-                    intent.putExtra("homeTeamLogo", homeTeamLogoUrl);
-                    intent.putExtra("awayTeamName", awayTeamName);
-                    intent.putExtra("awayTeamLogo", awayTeamLogoUrl);
-                    intent.putExtra("matchDate", matchDateAndResult);
-                    intent.putExtra("matchTime", matchTimeAndStatus);
-                    intent.putExtra("matchNumber", matchNumber);
+                    intent.putExtra("matchday", matchday);
                     intent.putExtra("id", id);
-
-
-
 
                     startActivity(intent);
 

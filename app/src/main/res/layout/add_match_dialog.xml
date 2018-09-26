@@ -15,20 +15,23 @@
         android:id="@+id/model_match_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Group"/>
+        android:hint="Match Number"
+        android:inputType="number"/>
 
 
     <EditText
         android:id="@+id/home_team_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Home Team Name"/>
+        android:hint="Home Team Name"
+        android:inputType="textCapWords"/>
 
     <EditText
         android:id="@+id/away_team_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Away Team Name"/>
+        android:hint="Away Team Name"
+        android:inputType="textCapWords"/>
 
     <EditText
         android:id="@+id/home_team_logo_url"
@@ -46,13 +49,15 @@
         android:id="@+id/match_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Match Date"/>
+        android:hint="Match Date"
+        android:inputType="textCapCharacters"/>
 
     <EditText
         android:id="@+id/match_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Match Time"/>
+        android:hint="Match Time"
+        android:inputType="textCapCharacters"/>
 
     <Button
         android:id="@+id/submit_match_button"

@@ -4,10 +4,18 @@
     android:layout_height="match_parent"
     tools:context="com.ausoccer.ausoccerintramurals.LineupsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="NO DATA AVAILABLE" />
+
+    </RelativeLayout>
+
+
 
 </FrameLayout>

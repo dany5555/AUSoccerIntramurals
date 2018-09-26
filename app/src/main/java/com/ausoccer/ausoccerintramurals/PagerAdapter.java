@@ -51,14 +51,17 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 Matchday10Fragment tab10 = new Matchday10Fragment();
                 return tab10;
             case 10:
-                QuarterFinalsFragment tab11 = new QuarterFinalsFragment();
+                Matchday11Fragment tab11 = new Matchday11Fragment();
                 return tab11;
             case 11:
-                SemiFinalsFragment tab12 = new SemiFinalsFragment();
+                QuarterFinalsFragment tab12 = new QuarterFinalsFragment();
                 return tab12;
             case 12:
-                FinalFragment tab13 = new FinalFragment();
+                SemiFinalsFragment tab13 = new SemiFinalsFragment();
                 return tab13;
+            case 13:
+                FinalFragment tab14 = new FinalFragment();
+                return tab14;
             default:
                     return null;
         }

@@ -6,8 +6,8 @@ android {
         applicationId "com.ausoccer.ausoccerintramurals"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 6
-        versionName "1.41"
+        versionCode 8
+        versionName "1.43"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,7 +33,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation 'com.google.firebase:firebase-messaging:11.0.4'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-    implementation'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     testImplementation 'junit:junit:4.12'

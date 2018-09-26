@@ -1,5 +1,6 @@
 package com.ausoccer.ausoccerintramurals;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.ausoccer.ausoccerintramurals.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,16 +24,16 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SemiFinalsFragment extends Fragment {
+public class Matchday11Fragment extends Fragment {
 
     ListView listView;
     MatchesModel matchesModel;
     MatchesAdapter matchesAdapter;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference semiFinals = database.getReference("Matches").child("Semi-Finals");
+    DatabaseReference matchday11 = database.getReference("Matches").child("Matchday11");
 
-    String matchday = "Semi-Finals";
+    String matchday = "Matchday11";
 
 
 
@@ -42,7 +42,7 @@ public class SemiFinalsFragment extends Fragment {
     ArrayList<MatchesModel> matchesModelArrayList = new ArrayList<>();
 
 
-    public SemiFinalsFragment() {
+    public Matchday11Fragment() {
         // Required empty public constructor
     }
 
@@ -51,9 +51,9 @@ public class SemiFinalsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_semi_finals, container, false);
+        View v = inflater.inflate(R.layout.fragment_matchday11, container, false);
 
-        listView = v.findViewById(R.id.semi_finals_list);
+        listView = v.findViewById(R.id.matchday_11_list);
 
 
 
@@ -99,7 +99,7 @@ public class SemiFinalsFragment extends Fragment {
             }
         });
 
-        semiFinals.addValueEventListener(new ValueEventListener() {
+        matchday11.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //matchesModelArrayList.clear();
@@ -126,6 +126,7 @@ public class SemiFinalsFragment extends Fragment {
 
             }
         });
+
 
         return v;
     }

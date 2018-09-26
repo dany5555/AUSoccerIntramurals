@@ -2,6 +2,7 @@ package com.ausoccer.ausoccerintramurals;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -17,9 +18,12 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 /**
@@ -41,9 +45,24 @@ public class MatchesFragment extends Fragment {
     DatabaseReference matchday4 = database.getReference("Matches").child("Matchday4");
     DatabaseReference matchday5 = database.getReference("Matches").child("Matchday5");
     DatabaseReference matchday6 = database.getReference("Matches").child("Matchday6");
+    DatabaseReference matchday7 = database.getReference("Matches").child("Matchday7");
+    DatabaseReference matchday8 = database.getReference("Matches").child("Matchday8");
+    DatabaseReference matchday9 = database.getReference("Matches").child("Matchday9");
+    DatabaseReference matchday10 = database.getReference("Matches").child("Matchday10");
+    DatabaseReference matchday11 = database.getReference("Matches").child("Matchday11");
+    DatabaseReference quarterFinals = database.getReference("Matches").child("Quarter-Finals");
+    DatabaseReference semiFinals = database.getReference("Matches").child("Semi-Finals");
+    DatabaseReference finals = database.getReference("Matches").child("Final");
+
+    DatabaseReference currentTab = database.getReference("CurrentTab");
+
+
+
 
 
     int currentPage = 0;
+    int currentTabDisplayed;
+
 
 
 
@@ -60,6 +79,23 @@ public class MatchesFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_matches, container, false);
 
         addMatchFabButton = v.findViewById(R.id.add_match_fab);
+
+
+        currentTab.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String lol = dataSnapshot.getValue().toString();
+                currentTabDisplayed = Integer.valueOf(lol);
+                viewPager.setCurrentItem(currentTabDisplayed);
+                Log.v("fdfd", "page: " + currentTabDisplayed);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         addMatchFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,9 +115,12 @@ public class MatchesFragment extends Fragment {
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 7"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 8"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 9"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 10"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 11"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("QUARTER-FINALS"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("SEMI-FINALS"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("FINAL"));
+
 
 
 
@@ -98,7 +137,7 @@ public class MatchesFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                currentPage = viewPager.getCurrentItem();
+                //currentPage = viewPager.getCurrentItem();
                 Log.v("dsd", "Current tab: " + currentPage);
 
             }
@@ -201,6 +240,10 @@ public class MatchesFragment extends Fragment {
                     matchesModel.setMatchTime(matchTime);
                     matchesModel.setMatchNumber(Integer.valueOf(matchNumber));
 
+                    matchesModel.setFinalResult("");
+                    matchesModel.setLiveResult("");
+                    matchesModel.setMatchStatus("NOT PLAYED");
+
 
                     matchesModel.setUid(matchday1.push().getKey());
 
@@ -245,6 +288,62 @@ public class MatchesFragment extends Fragment {
                             ex.printStackTrace();
                         }
 
+                    } else if (currentPage == 6) {
+                        try {
+                            matchday7.child(matchesModel.getUid()).setValue(matchesModel);
+                        } catch (DatabaseException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    } else if (currentPage == 7) {
+                        try {
+                            matchday8.child(matchesModel.getUid()).setValue(matchesModel);
+                        } catch (DatabaseException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    } else if (currentPage == 8) {
+                        try {
+                            matchday9.child(matchesModel.getUid()).setValue(matchesModel);
+                        } catch (DatabaseException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    } else if (currentPage == 9) {
+                        try {
+                            matchday10.child(matchesModel.getUid()).setValue(matchesModel);
+                        } catch (DatabaseException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    } else if (currentPage == 10) {
+                        try {
+                            matchday11.child(matchesModel.getUid()).setValue(matchesModel);
+                        } catch (DatabaseException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    }else if (currentPage == 11) {
+                        try {
+                            quarterFinals.child(matchesModel.getUid()).setValue(matchesModel);
+                        } catch (DatabaseException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    } else if (currentPage == 12) {
+                        try {
+                            semiFinals.child(matchesModel.getUid()).setValue(matchesModel);
+                        } catch (DatabaseException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    } else if (currentPage == 13) {
+                        try {
+                            finals.child(matchesModel.getUid()).setValue(matchesModel);
+                        } catch (DatabaseException ex) {
+                            ex.printStackTrace();
+                        }
+
                     }
 
 
@@ -263,8 +362,12 @@ public class MatchesFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewPager.setCurrentItem(currentTabDisplayed);
 
-
+    }
 
 
 }
