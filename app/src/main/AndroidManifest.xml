@@ -20,17 +20,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".MatchDataActivity" />
-        <activity android:name=".MatchDataActivityAdmin"></activity>
+        <activity android:name=".MatchDataActivityAdmin" />
 
         <service android:name=".MyFirebaseIdService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".MyFirebaseMessaging">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
@@ -38,9 +37,7 @@
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/soccer_ball" />
 
-
+        <activity android:name=".TeamProfileActivity"></activity>
     </application>
-
-
 
 </manifest>

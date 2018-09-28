@@ -2,8 +2,10 @@ package com.ausoccer.ausoccerintramurals;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
@@ -241,7 +243,8 @@ public class MainActivity extends AppCompatActivity {
 
                 //Toast.makeText(getApplicationContext(), "This should show a dialog to log in", Toast.LENGTH_SHORT).show();
 
-
+            case R.id.privacy_policy :
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/document/d/e/2PACX-1vTSsCx-udmrGD1_4Nhp3s90fByq92alwQ5Fk3vw9dCICZSqym1gNup_q7FLv_GB0TxP4Rw8Kb3qDebi/pub")));
             default:
                     return super.onOptionsItemSelected(item);
 

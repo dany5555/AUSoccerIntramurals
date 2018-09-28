@@ -4,7 +4,6 @@
 
     <item
         android:id="@+id/sign_in_icon"
-        android:icon="@drawable/admin"
         app:showAsAction="collapseActionView"
         android:title="Login">
     </item>
@@ -12,8 +11,14 @@
     <item
         android:id="@+id/sign_out_icon"
         app:showAsAction="collapseActionView"
-        android:icon="@drawable/logout"
         android:title="Logout">
+
+    </item>
+
+    <item
+        android:id="@+id/privacy_policy"
+        app:showAsAction="collapseActionView"
+        android:title="Privacy Policy">
 
     </item>
 
