@@ -2,12 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
     tools:context="com.ausoccer.ausoccerintramurals.LatestFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/listContents"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Latest Fragment" />
+        android:scrollbars="none">
+
+    </ListView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:src="@drawable/add"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="@color/colorPrimaryDark"
+        app:fabSize="normal"/>
 
 </FrameLayout>

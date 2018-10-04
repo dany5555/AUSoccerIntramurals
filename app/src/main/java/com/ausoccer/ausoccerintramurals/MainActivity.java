@@ -58,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
         android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.content, new HomeFragment());
+        // Removed  this line to start the activity with the current and only tournament being held at the moment.
+        //ft.replace(R.id.content, new HomeFragment());
+        ft.replace(R.id.content, new AULeagueFragment());
         ft.commit();
 
         ActionBar mActionBar = getSupportActionBar();
@@ -75,14 +77,14 @@ public class MainActivity extends AppCompatActivity {
         mActionBar.setDisplayShowCustomEnabled(true);
         ((Toolbar) actionBar.getParent()).setContentInsetsAbsolute(0,0);
 
-        BoomMenuButton leftBmb = (BoomMenuButton) actionBar.findViewById(R.id.action_bar_left_bmb);
+        //BoomMenuButton leftBmb = (BoomMenuButton) actionBar.findViewById(R.id.action_bar_left_bmb);
 
-        leftBmb.setButtonEnum(ButtonEnum.TextOutsideCircle);
+        /*leftBmb.setButtonEnum(ButtonEnum.TextOutsideCircle);
         leftBmb.setPiecePlaceEnum(PiecePlaceEnum.DOT_4_2);
-        leftBmb.setButtonPlaceEnum(ButtonPlaceEnum.SC_4_2);
+        leftBmb.setButtonPlaceEnum(ButtonPlaceEnum.SC_4_2);*/
 
 
-       leftBmb.addBuilder(new TextOutsideCircleButton.Builder()
+       /*leftBmb.addBuilder(new TextOutsideCircleButton.Builder()
                .normalImageRes(R.drawable.au_league_logo)
                .normalColorRes(R.color.colorPrimary)
                .highlightedColorRes(R.color.colorSecondaryDark)
@@ -162,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
                    }
                })
-       );
+       );*/
 
 
 
