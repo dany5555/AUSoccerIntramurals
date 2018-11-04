@@ -96,6 +96,30 @@ public class MatchDataActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         currentMatchRef = database.getReference("Matches").child(getIntent().getStringExtra("matchday")).child(matchId);
 
+        currentMatchRef.child("matchDate").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                notPlayedMatchDate.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentMatchRef.child("matchTime").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                notPlayedMatchTime.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         currentMatchRef.child("liveResult").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
