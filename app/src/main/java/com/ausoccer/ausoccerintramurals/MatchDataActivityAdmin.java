@@ -211,6 +211,30 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
         homeTeamLogo = findViewById(R.id.home_team_logo);
         awayTeamLogo = findViewById(R.id.away_team_logo);
 
+        currentMatchRef.child("matchDate").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                notPlayedMatchDate.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentMatchRef.child("matchTime").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                notPlayedMatchTime.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         currentMatchRef.child("liveResult").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
