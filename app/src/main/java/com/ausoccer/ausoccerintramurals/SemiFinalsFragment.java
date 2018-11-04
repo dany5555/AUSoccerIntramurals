@@ -99,7 +99,7 @@ public class SemiFinalsFragment extends Fragment {
             }
         });
 
-        semiFinals.addValueEventListener(new ValueEventListener() {
+        semiFinals.orderByChild("matchNumber").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //matchesModelArrayList.clear();

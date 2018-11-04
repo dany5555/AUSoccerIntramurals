@@ -99,7 +99,7 @@ public class FinalFragment extends Fragment {
             }
         });
 
-        finals.addValueEventListener(new ValueEventListener() {
+        finals.orderByChild("matchNumber").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //matchesModelArrayList.clear();

@@ -99,7 +99,7 @@ public class Matchday10Fragment extends Fragment {
             }
         });
 
-        matchday10.addValueEventListener(new ValueEventListener() {
+        matchday10.orderByChild("matchNumber").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //matchesModelArrayList.clear();

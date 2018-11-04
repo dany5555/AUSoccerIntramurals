@@ -99,7 +99,7 @@ public class QuarterFinalsFragment extends Fragment {
             }
         });
 
-        quarterFinals.addValueEventListener(new ValueEventListener() {
+        quarterFinals.orderByChild("matchNumber").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //matchesModelArrayList.clear();

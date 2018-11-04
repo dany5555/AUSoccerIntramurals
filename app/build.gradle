@@ -6,8 +6,8 @@ android {
         applicationId "com.ausoccer.ausoccerintramurals"
         minSdkVersion 14
         targetSdkVersion 27
-        versionCode 11
-        versionName "1.46"
+        versionCode 12
+        versionName "1.47"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

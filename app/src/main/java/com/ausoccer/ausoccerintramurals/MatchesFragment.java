@@ -45,12 +45,6 @@ public class MatchesFragment extends Fragment {
     DatabaseReference matchday4 = database.getReference("Matches").child("Matchday4");
     DatabaseReference matchday5 = database.getReference("Matches").child("Matchday5");
     DatabaseReference matchday6 = database.getReference("Matches").child("Matchday6");
-    DatabaseReference matchday7 = database.getReference("Matches").child("Matchday7");
-    DatabaseReference matchday8 = database.getReference("Matches").child("Matchday8");
-    DatabaseReference matchday9 = database.getReference("Matches").child("Matchday9");
-    DatabaseReference matchday10 = database.getReference("Matches").child("Matchday10");
-    DatabaseReference matchday11 = database.getReference("Matches").child("Matchday11");
-    DatabaseReference quarterFinals = database.getReference("Matches").child("Quarter-Finals");
     DatabaseReference semiFinals = database.getReference("Matches").child("Semi-Finals");
     DatabaseReference finals = database.getReference("Matches").child("Final");
 
@@ -112,12 +106,6 @@ public class MatchesFragment extends Fragment {
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 4"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 5"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 6"));
-        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 7"));
-        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 8"));
-        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 9"));
-        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 10"));
-        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 11"));
-        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("QUARTER-FINALS"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("SEMI-FINALS"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("FINAL"));
 
@@ -137,7 +125,7 @@ public class MatchesFragment extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                //currentPage = viewPager.getCurrentItem();
+                currentPage = viewPager.getCurrentItem();
                 Log.v("dsd", "Current tab: " + currentPage);
 
             }
@@ -290,54 +278,12 @@ public class MatchesFragment extends Fragment {
 
                     } else if (currentPage == 6) {
                         try {
-                            matchday7.child(matchesModel.getUid()).setValue(matchesModel);
-                        } catch (DatabaseException ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else if (currentPage == 7) {
-                        try {
-                            matchday8.child(matchesModel.getUid()).setValue(matchesModel);
-                        } catch (DatabaseException ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else if (currentPage == 8) {
-                        try {
-                            matchday9.child(matchesModel.getUid()).setValue(matchesModel);
-                        } catch (DatabaseException ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else if (currentPage == 9) {
-                        try {
-                            matchday10.child(matchesModel.getUid()).setValue(matchesModel);
-                        } catch (DatabaseException ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else if (currentPage == 10) {
-                        try {
-                            matchday11.child(matchesModel.getUid()).setValue(matchesModel);
-                        } catch (DatabaseException ex) {
-                            ex.printStackTrace();
-                        }
-
-                    }else if (currentPage == 11) {
-                        try {
-                            quarterFinals.child(matchesModel.getUid()).setValue(matchesModel);
-                        } catch (DatabaseException ex) {
-                            ex.printStackTrace();
-                        }
-
-                    } else if (currentPage == 12) {
-                        try {
                             semiFinals.child(matchesModel.getUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }
 
-                    } else if (currentPage == 13) {
+                    } else if (currentPage == 7) {
                         try {
                             finals.child(matchesModel.getUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {

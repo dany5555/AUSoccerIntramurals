@@ -34,7 +34,6 @@
         android:layout_gravity="bottom|end"
         android:src="@drawable/add"
         android:layout_margin="16dp"
-        app:backgroundTint="@color/colorPrimaryDark"
         app:fabSize="normal"/>
 
 </FrameLayout>

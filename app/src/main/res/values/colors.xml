@@ -11,4 +11,11 @@
     <color name="black">#000</color>
     <color name="backgroundColor">#bdbdbd</color>
 
+    <!-- These colors are for the finals theme-->
+    <color name="colorPrimaryFinal">#404f59</color>
+    <color name="colorAccentFinal">#be9549</color>
+    <color name="colorPrimaryDarkFinal">#313d44</color>
+    <color name="colorSecondaryFinal">#ebeae6</color>
+
+
 </resources>
