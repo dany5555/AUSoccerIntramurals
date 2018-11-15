@@ -177,7 +177,7 @@ public class MatchesFragment extends Fragment {
 
 
                     if (TextUtils.isEmpty(matchNumber)) {
-                        Toast.makeText(getContext(), "Please enter group name", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Please enter match number", Toast.LENGTH_SHORT).show();
                         return;
 
                     }
@@ -233,7 +233,7 @@ public class MatchesFragment extends Fragment {
                     matchesModel.setMatchStatus("NOT PLAYED");
 
 
-                    matchesModel.setUid(matchday1.push().getKey());
+                    matchesModel.setUid(homeTeamName + " vs " + awayTeamName);
 
                     if (currentPage == 0) {
                         try {

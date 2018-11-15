@@ -1,5 +1,6 @@
 package com.ausoccer.ausoccerintramurals;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,8 @@ public class MatchDataActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference currentMatchRef;
     String matchId;
+    String homeTeamUid;
+
 
     TextView homeTeamName, awayTeamName, matchDateAndResult, matchTimeAndStatus, groupName;
     ImageView homeTeamLogo, awayTeamLogo;
@@ -222,6 +225,30 @@ public class MatchDataActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentMatchRef.child("homeTeamUid").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                homeTeamUid = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        homeTeamLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), TeamProfileActivity.class);
+
+
+                intent.putExtra("homeTeamUid", homeTeamUid);
+                startActivity(intent);
 
             }
         });

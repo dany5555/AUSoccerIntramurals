@@ -191,15 +191,6 @@
 
    </RelativeLayout>
 
-   <android.support.design.widget.TabLayout
-       android:id="@+id/match_data_tab_layout"
-       android:layout_width="match_parent"
-       android:layout_below="@id/match_data_layout"
-       android:layout_height="?attr/actionBarSize"
-       android:background="@color/colorPrimaryDark">
-
-   </android.support.design.widget.TabLayout>
-
    <android.support.v4.view.ViewPager
        android:id="@+id/viewPager"
        android:layout_width="match_parent"
@@ -209,15 +200,16 @@
 
    </android.support.v4.view.ViewPager>
 
+   <android.support.design.widget.TabLayout
+       android:id="@+id/match_data_tab_layout"
+       android:layout_width="match_parent"
+       android:layout_height="?attr/actionBarSize"
+       android:layout_alignParentStart="true"
+       android:layout_alignParentLeft="true"
+       android:layout_below="@+id/match_data_layout"
+       android:background="@color/colorPrimaryDark">
 
-
-
-
-
-
-    
-
-
+   </android.support.design.widget.TabLayout>
 
 
 </RelativeLayout>
