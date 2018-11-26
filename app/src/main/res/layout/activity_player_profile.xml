@@ -279,7 +279,7 @@
                             android:id="@+id/matches_played"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3"
+                            android:text="1"
                             android:textColor="@color/colorPrimaryText"
                             android:textSize="20sp"
                             android:textStyle="bold"
