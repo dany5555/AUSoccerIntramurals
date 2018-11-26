@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlayerProfileActivity">
+
+    <RelativeLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/colorSecondaryDark">
+
+        <ImageView
+            android:id="@+id/player_picture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/empty_picture"/>
+
+        <TextView
+            android:id="@+id/player_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/player_picture"
+            android:layout_marginTop="16dp"
+            android:text="Player Name"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/team_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/player_name"
+            android:text="Team Name"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"/>
+
+        <RelativeLayout
+            android:id="@+id/team_and_number_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/player_picture"
+            android:layout_marginRight="16dp">
+
+            <ImageView
+                android:id="@+id/team_logo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/empty_team_logo" />
+
+            <TextView
+                android:id="@+id/player_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/team_logo"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="8"
+                android:textSize="30sp"/>
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_layout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/player_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:background="@color/colorPrimaryFinal">
+
+                <TextView
+                    android:id="@+id/position_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="POSITION"
+                    android:textSize="10sp"
+                    android:textColor="@color/colorPrimaryText"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/position_title"
+                    android:text="DEFENDER"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorPrimaryText"/>
+
+                <RelativeLayout
+                    android:id="@+id/second_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/position"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true">
+
+                    <RelativeLayout
+                        android:id="@+id/age_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/age_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AGE"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"/>
+
+                        <TextView
+                            android:id="@+id/age"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/age_title"
+                            android:text="20"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textStyle="bold"
+                            android:textSize="20sp"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/country_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/age_layout"
+                        android:layout_marginLeft="16dp">
+
+                        <TextView
+                            android:id="@+id/country_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="COUNTRY OF BIRTH"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/country"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="USA"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_below="@id/country_title"
+                            android:layout_centerHorizontal="true"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/weight_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/country_layout"
+                        android:layout_marginLeft="16dp">
+
+                        <TextView
+                            android:id="@+id/weight_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="WEIGHT"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="10sp"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="120 LB"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/weight_title"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimaryText"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/height_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/weight_layout"
+                        android:layout_marginLeft="16dp">
+
+                        <TextView
+                            android:id="@+id/height_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HEIGHT"
+                            android:textSize="10sp"
+                            android:layout_centerHorizontal="true"
+                            android:textColor="@color/colorPrimaryText"/>
+
+                        <TextView
+                            android:id="@+id/height"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5' 6&quot;"
+                            android:layout_below="@id/height_title"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"/>
+
+
+                    </RelativeLayout>
+
+
+
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/player_stats_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/player_info_layout"
+                android:background="@color/colorPrimaryFinal"
+                android:padding="16dp"
+                android:layout_marginTop="16dp">
+
+                <RelativeLayout
+                    android:id="@+id/first_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+                    <RelativeLayout
+                        android:id="@+id/matches_played_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="50dp">
+
+                        <TextView
+                            android:id="@+id/matches_played_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MATCHES"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/matches_played"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/matches_played_title"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/goals_scored_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/matches_played_layout"
+                        android:layout_marginRight="50dp">
+
+                        <TextView
+                            android:id="@+id/goals_scored_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="GOALS"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/goals_scored"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/goals_scored_title"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/assists_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/goals_scored_layout">
+
+                        <TextView
+                            android:id="@+id/assists_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ASSISTS"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/assists"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/assists_title"/>
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/second_row_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/first_row"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true">
+
+                    <RelativeLayout
+                        android:id="@+id/shots_on_target_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp">
+
+                        <TextView
+                            android:id="@+id/shots_on_target_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SHOTS ON TARGET"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/shots_on_target"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/shots_on_target_title"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/shots_off_target_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/shots_on_target_layout">
+
+                        <TextView
+                            android:id="@+id/shots_off_target_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SHOTS OFF TARGET"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/shots_off_target"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/shots_off_target_title"/>
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/third_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/second_row_2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp">
+
+                    <RelativeLayout
+                        android:id="@+id/fouls_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/fouls_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FOULS"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/fouls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/fouls_title"/>
+
+                </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/fourth_row"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_below="@id/third_row"
+                    android:layout_centerHorizontal="true">
+
+                    <RelativeLayout
+                        android:id="@+id/red_cards_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="50dp"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/red_cards_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RED CARDS"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/red_cards"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/red_cards_title"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/cards_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/red_cards_layout"
+                        android:layout_marginRight="30dp">
+
+
+                        <TextView
+                            android:id="@+id/cards_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CARDS"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <ImageView
+                            android:id="@+id/cards_image_view"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/cards"
+                            android:layout_below="@id/cards_title"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"/>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/yellow_cards_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/cards_layout"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:id="@+id/yellow_cards_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YELLOW CARDS"
+                            android:textSize="10sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:layout_centerHorizontal="true"/>
+
+                        <TextView
+                            android:id="@+id/yellow_cards"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@id/yellow_cards_title"/>
+
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+
+</RelativeLayout>

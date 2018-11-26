@@ -77,7 +77,7 @@ public class Matchday1Fragment extends Fragment {
 
                     Intent intent = new Intent(getActivity(), MatchDataActivityAdmin.class);
 
-                    String id = matchesModel.getUid();
+                    String id = matchesModel.getMatchUid();
 
                     intent.putExtra("id", id);
                     intent.putExtra("matchday", matchday);
@@ -91,7 +91,7 @@ public class Matchday1Fragment extends Fragment {
                     matchesModel = new MatchesModel();
                     matchesModel = matchesModelArrayList.get(i);
 
-                    String id = matchesModel.getUid();
+                    String id = matchesModel.getMatchUid();
 
                     Intent intent = new Intent(getActivity(), MatchDataActivity.class);
 
@@ -208,7 +208,7 @@ public class Matchday1Fragment extends Fragment {
         matchesModel.setAwayTeamLogoUrl(newAwayTeamLogoUrl);
         matchesModel.setMatchDate(newMatchDate);
         matchesModel.setMatchTime(newMatchTime);
-        matchesModel.setUid(uid);
+        matchesModel.setMatchUid(uid);
         //matchesModel.setMatchNumber(newMatchNumber);
 
         matchday1.child(uid).setValue(matchesModel);

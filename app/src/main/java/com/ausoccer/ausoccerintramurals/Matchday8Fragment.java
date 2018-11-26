@@ -71,7 +71,7 @@ public class Matchday8Fragment extends Fragment {
 
                     Intent intent = new Intent(getActivity(), MatchDataActivityAdmin.class);
 
-                    String id = matchesModel.getUid();
+                    String id = matchesModel.getMatchUid();
 
                     intent.putExtra("id", id);
                     intent.putExtra("matchday", matchday);
@@ -85,7 +85,7 @@ public class Matchday8Fragment extends Fragment {
                     matchesModel = new MatchesModel();
                     matchesModel = matchesModelArrayList.get(i);
 
-                    String id = matchesModel.getUid();
+                    String id = matchesModel.getMatchUid();
 
                     Intent intent = new Intent(getActivity(), MatchDataActivity.class);
 

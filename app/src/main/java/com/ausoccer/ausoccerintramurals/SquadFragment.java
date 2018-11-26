@@ -1,11 +1,13 @@
 package com.ausoccer.ausoccerintramurals;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -49,6 +51,24 @@ public class SquadFragment extends Fragment {
         squadModel = new SquadModel();
         squadAdapter = new SquadAdapter(getActivity(), squadModelArrayList);
         squadList.setAdapter(squadAdapter);
+
+        squadList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                squadModel = new SquadModel();
+                squadModel = squadModelArrayList.get(position);
+
+                String playerUid = squadModel.getPlayerUid();
+                String teamUid = squadModel.getTeam();
+
+                Intent intent = new Intent(getActivity(), PlayerProfileActivity.class);
+
+                intent.putExtra("playerUid", playerUid);
+                intent.putExtra("teamUid", teamUid);
+
+                startActivity(intent);
+            }
+        });
 
         TeamProfileActivity teamProfileActivity = (TeamProfileActivity) getActivity();
         String teamUid = teamProfileActivity.getTeamUid();

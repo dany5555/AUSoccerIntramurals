@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -28,10 +29,11 @@ public class MatchDataActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference currentMatchRef;
     String matchId;
-    String homeTeamUid;
+    String matchDay;
+    String homeTeamUid, awayTeamUid;
 
 
-    TextView homeTeamName, awayTeamName, matchDateAndResult, matchTimeAndStatus, groupName;
+    TextView homeTeamName, awayTeamName;
     ImageView homeTeamLogo, awayTeamLogo;
 
     // Not played match objects.
@@ -96,8 +98,12 @@ public class MatchDataActivity extends AppCompatActivity {
         });
 
         matchId = getIntent().getStringExtra("id");
+        matchDay = getIntent().getStringExtra("matchday");
+        Log.v("matchday", matchDay);
+        Log.v("matchid", matchId);
+
         database = FirebaseDatabase.getInstance();
-        currentMatchRef = database.getReference("Matches").child(getIntent().getStringExtra("matchday")).child(matchId);
+        currentMatchRef = database.getReference("Matches").child(matchDay).child(matchId);
 
         currentMatchRef.child("matchDate").addValueEventListener(new ValueEventListener() {
             @Override
@@ -241,15 +247,38 @@ public class MatchDataActivity extends AppCompatActivity {
             }
         });
 
+        currentMatchRef.child("awayTeamUid").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                awayTeamUid = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         homeTeamLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), TeamProfileActivity.class);
 
 
-                intent.putExtra("homeTeamUid", homeTeamUid);
+                intent.putExtra("teamUid", homeTeamUid);
                 startActivity(intent);
 
+            }
+        });
+
+        awayTeamLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), TeamProfileActivity.class);
+
+                intent.putExtra("teamUid", awayTeamUid);
+                startActivity(intent);
             }
         });
 

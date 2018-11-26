@@ -40,13 +40,6 @@ public class MatchDataActivityAdmin extends AppCompatActivity {
     private boolean running;
     private long pauseOffset;
 
-
-
-
-
-
-
-
     TextView homeTeamName, awayTeamName;
     ImageView homeTeamLogo, awayTeamLogo;
 

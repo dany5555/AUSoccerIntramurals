@@ -34,7 +34,7 @@ public class TeamProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_profile);
 
-        teamUid = getIntent().getStringExtra("homeTeamUid");
+        teamUid = getIntent().getStringExtra("teamUid");
 
         teamName = findViewById(R.id.team_name);
         teamLogo = findViewById(R.id.team_logo);

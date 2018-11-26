@@ -228,64 +228,66 @@ public class MatchesFragment extends Fragment {
                     matchesModel.setMatchTime(matchTime);
                     matchesModel.setMatchNumber(Integer.valueOf(matchNumber));
 
-                    matchesModel.setFinalResult("");
-                    matchesModel.setLiveResult("");
+                    //matchesModel.setFinalResult("");
+                    matchesModel.setLiveResult("0 - 0");
                     matchesModel.setMatchStatus("NOT PLAYED");
+                    matchesModel.setHomeTeamUid(homeTeamName);
+                    matchesModel.setAwayTeamUid(awayTeamName);
 
 
-                    matchesModel.setUid(homeTeamName + " vs " + awayTeamName);
+                    matchesModel.setMatchUid(homeTeamName + " vs " + awayTeamName);
 
                     if (currentPage == 0) {
                         try {
-                            matchday1.child(matchesModel.getUid()).setValue(matchesModel);
+                            matchday1.child(matchesModel.getMatchUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }
                     } else if (currentPage == 1) {
                         try {
-                            matchday2.child(matchesModel.getUid()).setValue(matchesModel);
+                            matchday2.child(matchesModel.getMatchUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }
 
                     } else if (currentPage == 2) {
                         try {
-                            matchday3.child(matchesModel.getUid()).setValue(matchesModel);
+                            matchday3.child(matchesModel.getMatchUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }
 
                     } else if (currentPage == 3) {
                         try {
-                            matchday4.child(matchesModel.getUid()).setValue(matchesModel);
+                            matchday4.child(matchesModel.getMatchUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }
 
                     } else if (currentPage == 4) {
                         try {
-                            matchday5.child(matchesModel.getUid()).setValue(matchesModel);
+                            matchday5.child(matchesModel.getMatchUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }
 
                     } else if (currentPage == 5) {
                         try {
-                            matchday6.child(matchesModel.getUid()).setValue(matchesModel);
+                            matchday6.child(matchesModel.getMatchUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }
 
                     } else if (currentPage == 6) {
                         try {
-                            semiFinals.child(matchesModel.getUid()).setValue(matchesModel);
+                            semiFinals.child(matchesModel.getMatchUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }
 
                     } else if (currentPage == 7) {
                         try {
-                            finals.child(matchesModel.getUid()).setValue(matchesModel);
+                            finals.child(matchesModel.getMatchUid()).setValue(matchesModel);
                         } catch (DatabaseException ex) {
                             ex.printStackTrace();
                         }

@@ -8,30 +8,30 @@ public class MatchesModel {
 
     String homeTeamLogoUrl, awayTeamLogoUrl;
     String homeTeamName, awayTeamName;
+    String homeTeamUid, awayTeamUid;
     String matchDate, matchTime;
-    String uid;
+    String matchUid;
     int matchNumber;
-    String liveResult, matchStatus, finalResult;
+    String liveResult, matchStatus;
 
 
     public MatchesModel() {
 
     }
 
-    public MatchesModel(String homeTeamLogoUrl, String awayTeamLogoUrl, String homeTeamName, String awayTeamName, String matchDate,
-                        String matchTime, String uid, int matchNumber, String liveResult, String matchStatus, String finalResult) {
+    public MatchesModel(String homeTeamLogoUrl, String awayTeamLogoUrl, String homeTeamName, String awayTeamName, String homeTeamUid, String awayTeamUid, String matchDate, String matchTime, String matchUid, int matchNumber, String liveResult, String matchStatus) {
         this.homeTeamLogoUrl = homeTeamLogoUrl;
         this.awayTeamLogoUrl = awayTeamLogoUrl;
         this.homeTeamName = homeTeamName;
         this.awayTeamName = awayTeamName;
+        this.homeTeamUid = homeTeamUid;
+        this.awayTeamUid = awayTeamUid;
         this.matchDate = matchDate;
         this.matchTime = matchTime;
-        this.uid = uid;
+        this.matchUid = matchUid;
         this.matchNumber = matchNumber;
         this.liveResult = liveResult;
         this.matchStatus = matchStatus;
-        this.finalResult = finalResult;
-
     }
 
     public String getHomeTeamLogoUrl() {
@@ -66,6 +66,22 @@ public class MatchesModel {
         this.awayTeamName = awayTeamName;
     }
 
+    public String getHomeTeamUid() {
+        return homeTeamUid;
+    }
+
+    public void setHomeTeamUid(String homeTeamUid) {
+        this.homeTeamUid = homeTeamUid;
+    }
+
+    public String getAwayTeamUid() {
+        return awayTeamUid;
+    }
+
+    public void setAwayTeamUid(String awayTeamUid) {
+        this.awayTeamUid = awayTeamUid;
+    }
+
     public String getMatchDate() {
         return matchDate;
     }
@@ -82,12 +98,12 @@ public class MatchesModel {
         this.matchTime = matchTime;
     }
 
-    public String getUid() {
-        return uid;
+    public String getMatchUid() {
+        return matchUid;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setMatchUid(String matchUid) {
+        this.matchUid = matchUid;
     }
 
     public int getMatchNumber() {
@@ -112,13 +128,5 @@ public class MatchesModel {
 
     public void setMatchStatus(String matchStatus) {
         this.matchStatus = matchStatus;
-    }
-
-    public String getFinalResult() {
-        return finalResult;
-    }
-
-    public void setFinalResult(String finalResult) {
-        this.finalResult = finalResult;
     }
 }

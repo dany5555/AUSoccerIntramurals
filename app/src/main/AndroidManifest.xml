@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ausoccer.ausoccerintramurals">
 
-
-
-
-
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -41,7 +37,8 @@
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/soccer_ball" />
 
-        <activity android:name=".TeamProfileActivity"></activity>
+        <activity android:name=".TeamProfileActivity" />
+        <activity android:name=".PlayerProfileActivity"></activity>
     </application>
 
 </manifest>
