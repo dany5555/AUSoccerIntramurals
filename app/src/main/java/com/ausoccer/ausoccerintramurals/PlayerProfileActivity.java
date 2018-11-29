@@ -18,6 +18,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
     FirebaseDatabase database;
     String playerUid;
     String currentTeamUid;
+    String playerPos;
 
     TextView playerName, teamName, playerNumber, playerPosition, playerCountry, playerWeight, playerHeight, playerAge;
     ImageView teamLogo, playerPicture;
@@ -29,6 +30,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
 
         playerUid = getIntent().getStringExtra("playerUid");
         currentTeamUid = getIntent().getStringExtra("teamUid");
+        playerPos = getIntent().getStringExtra("position");
 
         playerName = findViewById(R.id.player_name);
         teamName = findViewById(R.id.team_name);
@@ -43,7 +45,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
         playerPicture = findViewById(R.id.player_picture);
 
         database = FirebaseDatabase.getInstance();
-        currentPlayerRef = database.getReference("Squads").child(currentTeamUid).child("Defenders").child(playerUid);
+        currentPlayerRef = database.getReference("Squads").child(currentTeamUid).child(playerPos).child(playerUid);
         currentTeamRef = database.getReference("Teams").child(currentTeamUid);
 
         currentTeamRef.child("teamLogoUrl").addValueEventListener(new ValueEventListener() {
