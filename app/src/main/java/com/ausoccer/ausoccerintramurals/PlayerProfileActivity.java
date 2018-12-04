@@ -20,7 +20,8 @@ public class PlayerProfileActivity extends AppCompatActivity {
     String currentTeamUid;
     String playerPos;
 
-    TextView playerName, teamName, playerNumber, playerPosition, playerCountry, playerWeight, playerHeight, playerAge;
+    TextView playerName, teamName, playerNumber, playerPosition, playerCountry, playerWeight, playerHeight, playerAge,
+             matchesPlayed, goalsScored, assists, shotsOnTarget, shotsOfftarget, fouls, redCards, yellowCards;
     ImageView teamLogo, playerPicture;
 
     @Override
@@ -40,6 +41,14 @@ public class PlayerProfileActivity extends AppCompatActivity {
         playerCountry = findViewById(R.id.country);
         playerWeight = findViewById(R.id.weight);
         playerHeight = findViewById(R.id.height);
+        matchesPlayed = findViewById(R.id.matches_played);
+        goalsScored = findViewById(R.id.goals_scored);
+        shotsOnTarget = findViewById(R.id.shots_on_target);
+        shotsOfftarget = findViewById(R.id.shots_off_target);
+        assists = findViewById(R.id.assists);
+        fouls = findViewById(R.id.fouls);
+        redCards = findViewById(R.id.red_cards);
+        yellowCards = findViewById(R.id.yellow_cards);
 
         teamLogo = findViewById(R.id.team_logo);
         playerPicture = findViewById(R.id.player_picture);
@@ -160,6 +169,102 @@ public class PlayerProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Glide.with(getApplicationContext()).load(dataSnapshot.getValue().toString()).into(playerPicture);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentPlayerRef.child("matchesPlayed").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                matchesPlayed.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentPlayerRef.child("goalsScored").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                goalsScored.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentPlayerRef.child("assists").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                assists.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentPlayerRef.child("shotsOnTarget").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                shotsOnTarget.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentPlayerRef.child("shotsOffTarget").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                shotsOfftarget.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentPlayerRef.child("fouls").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                fouls.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentPlayerRef.child("redCards").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                redCards.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        currentPlayerRef.child("yellowCards").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                yellowCards.setText(dataSnapshot.getValue().toString());
             }
 
             @Override

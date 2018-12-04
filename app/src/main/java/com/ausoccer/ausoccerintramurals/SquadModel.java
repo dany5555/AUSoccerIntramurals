@@ -3,13 +3,16 @@ package com.ausoccer.ausoccerintramurals;
 public class SquadModel {
 
     private String firstName, lastName, country, position, weight, height, team, pictureUrl, playerUid;
-    private int age, number;
+    private int age, number, matchesPlayed, goalsScored, assists, shotsOnTarget, shotsOffTarget, fouls, redCards, yellowCards;
 
     public SquadModel() {
 
     }
 
-    public SquadModel(String firstName, String lastName, String country, String position, String weight, String height, String team, String pictureUrl, String playerUid, int age, int number) {
+    public SquadModel(String firstName, String lastName, String country, String position, String weight,
+                      String height, String team, String pictureUrl, String playerUid, int age, int number,
+                      int matchesPlayed, int goalsScored, int assists, int shotsOnTarget, int shotsOffTarget,
+                      int fouls, int redCards, int yellowCards) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.country = country;
@@ -21,6 +24,14 @@ public class SquadModel {
         this.playerUid =playerUid;
         this.age = age;
         this.number = number;
+        this.matchesPlayed = matchesPlayed;
+        this.goalsScored = goalsScored;
+        this.assists = assists;
+        this.shotsOnTarget = shotsOnTarget;
+        this.shotsOffTarget = shotsOffTarget;
+        this.fouls = fouls;
+        this.redCards = redCards;
+        this.yellowCards = yellowCards;
     }
 
     public String getFirstName() {
@@ -109,5 +120,69 @@ public class SquadModel {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public int getMatchesPlayed() {
+        return matchesPlayed;
+    }
+
+    public void setMatchesPlayed(int matchesPlayed) {
+        this.matchesPlayed = matchesPlayed;
+    }
+
+    public int getGoalsScored() {
+        return goalsScored;
+    }
+
+    public void setGoalsScored(int goalsScored) {
+        this.goalsScored = goalsScored;
+    }
+
+    public int getAssists() {
+        return assists;
+    }
+
+    public void setAssists(int assists) {
+        this.assists = assists;
+    }
+
+    public int getShotsOnTarget() {
+        return shotsOnTarget;
+    }
+
+    public void setShotsOnTarget(int shotsOnTarget) {
+        this.shotsOnTarget = shotsOnTarget;
+    }
+
+    public int getShotsOffTarget() {
+        return shotsOffTarget;
+    }
+
+    public void setShotsOffTarget(int shotsOffTarget) {
+        this.shotsOffTarget = shotsOffTarget;
+    }
+
+    public int getFouls() {
+        return fouls;
+    }
+
+    public void setFouls(int fouls) {
+        this.fouls = fouls;
+    }
+
+    public int getRedCards() {
+        return redCards;
+    }
+
+    public void setRedCards(int redCards) {
+        this.redCards = redCards;
+    }
+
+    public int getYellowCards() {
+        return yellowCards;
+    }
+
+    public void setYellowCards(int yellowCards) {
+        this.yellowCards = yellowCards;
     }
 }
