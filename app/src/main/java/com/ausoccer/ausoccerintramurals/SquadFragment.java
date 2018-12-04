@@ -52,10 +52,10 @@ public class SquadFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_squad, container, false);
 
-        defendersList = v.findViewById(R.id.defenders_list);
+        //defendersList = v.findViewById(R.id.defenders_list);
         goalkeepersList = v.findViewById(R.id.goalkeepers_list);
-        midfieldersList = v.findViewById(R.id.midfielders_list);
-        forwardsList = v.findViewById(R.id.forwards_list);
+        //midfieldersList = v.findViewById(R.id.midfielders_list);
+        //forwardsList = v.findViewById(R.id.forwards_list);
 
         squadModel = new SquadModel();
         defendersAdapter = new SquadAdapter(getActivity(), defendersArrayList);
@@ -63,10 +63,14 @@ public class SquadFragment extends Fragment {
         midfieldersAdapter = new SquadAdapter(getActivity(), midfieldersArrayList);
         forwardsAdapter = new SquadAdapter(getActivity(), forwardsArrayList);
 
-        goalkeepersList.setAdapter(defendersAdapter);
-        defendersList.setAdapter(defendersAdapter);
-        midfieldersList.setAdapter(defendersAdapter);
-        forwardsList.setAdapter(defendersAdapter);
+        LayoutInflater inflater1 = getLayoutInflater();
+        ViewGroup header = (ViewGroup)inflater1.inflate(R.layout.listview_header, goalkeepersList, false);
+        goalkeepersList.addHeaderView(header);
+
+        goalkeepersList.setAdapter(goalkeepersAdapter);
+        //defendersList.setAdapter(defendersAdapter);
+        //midfieldersList.setAdapter(defendersAdapter);
+        //forwardsList.setAdapter(defendersAdapter);
 
         goalkeepersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -87,7 +91,7 @@ public class SquadFragment extends Fragment {
             }
         });
 
-        defendersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*defendersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 squadModel = new SquadModel();
@@ -106,9 +110,9 @@ public class SquadFragment extends Fragment {
                 startActivity(intent);
 
             }
-        });
+        });*/
 
-        midfieldersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*midfieldersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 squadModel = new SquadModel();
@@ -127,9 +131,9 @@ public class SquadFragment extends Fragment {
                 startActivity(intent);
 
             }
-        });
+        });*/
 
-        forwardsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*forwardsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 squadModel = new SquadModel();
@@ -148,7 +152,7 @@ public class SquadFragment extends Fragment {
                 startActivity(intent);
 
             }
-        });
+        });*/
 
         TeamProfileActivity teamProfileActivity = (TeamProfileActivity) getActivity();
         String teamUid = teamProfileActivity.getTeamUid();
@@ -179,7 +183,7 @@ public class SquadFragment extends Fragment {
             }
         });
 
-        defendersRef.addValueEventListener(new ValueEventListener() {
+        /*defendersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 defendersArrayList.clear();
@@ -237,7 +241,7 @@ public class SquadFragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
 
 
