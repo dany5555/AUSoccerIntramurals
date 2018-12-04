@@ -1,10 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SquadFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/backgroundColor">
+
+        <TextView
+            android:id="@+id/goalkeepers_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goalkeepers"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <com.ausoccer.ausoccerintramurals.CustomListView
+            android:id="@+id/goalkeepers_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goalkeepers_header"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/defenders_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Defenders"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@id/goalkeepers_list"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <com.ausoccer.ausoccerintramurals.CustomListView
+            android:id="@+id/defenders_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/defenders_header"/>
+
+        <TextView
+            android:id="@+id/midfielders_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Midfielders"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@id/defenders_list"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <com.ausoccer.ausoccerintramurals.CustomListView
+            android:id="@+id/midfielders_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/midfielders_header"/>
+
+        <TextView
+            android:id="@+id/forwards_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forwards"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_below="@id/midfielders_list"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <com.ausoccer.ausoccerintramurals.CustomListView
+            android:id="@+id/forwards_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/forwards_header"/>
+
+
+    </RelativeLayout>
 
 
 
@@ -12,28 +95,7 @@
 
 
 
-                    <ListView
-                        android:id="@+id/goalkeepers_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:isScrollContainer="false">
-
-                    </ListView>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</FrameLayout>
+</ScrollView>
