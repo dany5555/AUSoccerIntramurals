@@ -21,7 +21,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
     String playerPos;
 
     TextView playerName, teamName, playerNumber, playerPosition, playerCountry, playerWeight, playerHeight, playerAge,
-             matchesPlayed, goalsScored, assists, shotsOnTarget, shotsOfftarget, fouls, redCards, yellowCards;
+             matchesPlayed, goalsScored, assists, shotsOnTarget, shotsOffTarget, fouls, redCards, yellowCards;
     ImageView teamLogo, playerPicture;
 
     @Override
@@ -44,7 +44,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
         matchesPlayed = findViewById(R.id.matches_played);
         goalsScored = findViewById(R.id.goals_scored);
         shotsOnTarget = findViewById(R.id.shots_on_target);
-        shotsOfftarget = findViewById(R.id.shots_off_target);
+        shotsOffTarget = findViewById(R.id.shots_off_target);
         assists = findViewById(R.id.assists);
         fouls = findViewById(R.id.fouls);
         redCards = findViewById(R.id.red_cards);
@@ -228,7 +228,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
         currentPlayerRef.child("shotsOffTarget").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                shotsOfftarget.setText(dataSnapshot.getValue().toString());
+                shotsOffTarget.setText(dataSnapshot.getValue().toString());
             }
 
             @Override
