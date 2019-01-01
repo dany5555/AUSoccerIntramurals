@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
+
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 
@@ -61,7 +61,7 @@ public class StandingsAdapter extends BaseAdapter {
         standingsModel = (StandingsModel) this.getItem(i);
 
         teamName.setText(standingsModel.getTeamName());
-        matchesPlayed.setText(standingsModel.getGamesPlayed());
+        matchesPlayed.setText(standingsModel.getMatchesPlayed());
         goalDifference.setText(standingsModel.getGoalDifference());
         points.setText(standingsModel.getPoints());
         position.setText(String.valueOf(standingsModel.getPosition()));

@@ -22,9 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/matches_tab_layout"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        </android.support.v4.view.ViewPager>
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
     </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton

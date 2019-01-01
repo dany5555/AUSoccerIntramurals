@@ -229,7 +229,7 @@ public class MatchesFragment extends Fragment {
                     matchesModel.setMatchNumber(Integer.valueOf(matchNumber));
 
                     //matchesModel.setFinalResult("");
-                    matchesModel.setLiveResult("0 - 0");
+                    matchesModel.setResult("0 - 0");
                     matchesModel.setMatchStatus("NOT PLAYED");
                     matchesModel.setHomeTeamUid(homeTeamName);
                     matchesModel.setAwayTeamUid(awayTeamName);

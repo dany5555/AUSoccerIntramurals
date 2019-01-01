@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,19 +24,19 @@ import java.util.ArrayList;
 public class SquadFragment extends Fragment {
 
     CustomListView goalkeepersList, defendersList, midfieldersList, forwardsList;
-    SquadModel squadModel;
+    SquadsModel squadsModel;
     SquadAdapter defendersAdapter, goalkeepersAdapter, midfieldersAdapter, forwardsAdapter;
 
 
     FirebaseDatabase database;
     DatabaseReference goalKeepersRef, defendersRef, midfieldersRef, forwardsRef;
 
-    ArrayList<SquadModel> defendersArrayList = new ArrayList<>();
-    ArrayList<SquadModel> goalkeepersArrayList = new ArrayList<>();
-    ArrayList<SquadModel> midfieldersArrayList = new ArrayList<>();
-    ArrayList<SquadModel> forwardsArrayList = new ArrayList<>();
+    ArrayList<SquadsModel> defendersArrayList = new ArrayList<>();
+    ArrayList<SquadsModel> goalkeepersArrayList = new ArrayList<>();
+    ArrayList<SquadsModel> midfieldersArrayList = new ArrayList<>();
+    ArrayList<SquadsModel> forwardsArrayList = new ArrayList<>();
 
-    ArrayList<SquadModel> fullArrayList = new ArrayList<>();
+    ArrayList<SquadsModel> fullArrayList = new ArrayList<>();
 
 
 
@@ -57,7 +56,7 @@ public class SquadFragment extends Fragment {
         midfieldersList = v.findViewById(R.id.midfielders_list);
         forwardsList = v.findViewById(R.id.forwards_list);
 
-        squadModel = new SquadModel();
+        squadsModel = new SquadsModel();
         defendersAdapter = new SquadAdapter(getActivity(), defendersArrayList);
         goalkeepersAdapter = new SquadAdapter(getActivity(), goalkeepersArrayList);
         midfieldersAdapter = new SquadAdapter(getActivity(), midfieldersArrayList);
@@ -75,11 +74,11 @@ public class SquadFragment extends Fragment {
         goalkeepersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                squadModel = new SquadModel();
-                squadModel = goalkeepersArrayList.get(position);
+                squadsModel = new SquadsModel();
+                squadsModel = goalkeepersArrayList.get(position);
 
-                String playerUid = squadModel.getPlayerUid();
-                String teamUid = squadModel.getTeam();
+                String playerUid = squadsModel.getPlayerUid();
+                String teamUid = squadsModel.getTeam();
 
                 Intent intent = new Intent(getActivity(), PlayerProfileActivity.class);
 
@@ -94,11 +93,11 @@ public class SquadFragment extends Fragment {
         defendersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                squadModel = new SquadModel();
-                squadModel = defendersArrayList.get(position);
+                squadsModel = new SquadsModel();
+                squadsModel = defendersArrayList.get(position);
 
-                String playerUid = squadModel.getPlayerUid();
-                String teamUid = squadModel.getTeam();
+                String playerUid = squadsModel.getPlayerUid();
+                String teamUid = squadsModel.getTeam();
 
                 Intent intent = new Intent(getActivity(), PlayerProfileActivity.class);
 
@@ -115,11 +114,11 @@ public class SquadFragment extends Fragment {
         midfieldersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                squadModel = new SquadModel();
-                squadModel = midfieldersArrayList.get(position);
+                squadsModel = new SquadsModel();
+                squadsModel = midfieldersArrayList.get(position);
 
-                String playerUid = squadModel.getPlayerUid();
-                String teamUid = squadModel.getTeam();
+                String playerUid = squadsModel.getPlayerUid();
+                String teamUid = squadsModel.getTeam();
 
                 Intent intent = new Intent(getActivity(), PlayerProfileActivity.class);
 
@@ -136,11 +135,11 @@ public class SquadFragment extends Fragment {
         forwardsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                squadModel = new SquadModel();
-                squadModel = forwardsArrayList.get(position);
+                squadsModel = new SquadsModel();
+                squadsModel = forwardsArrayList.get(position);
 
-                String playerUid = squadModel.getPlayerUid();
-                String teamUid = squadModel.getTeam();
+                String playerUid = squadsModel.getPlayerUid();
+                String teamUid = squadsModel.getTeam();
 
                 Intent intent = new Intent(getActivity(), PlayerProfileActivity.class);
 
@@ -169,8 +168,8 @@ public class SquadFragment extends Fragment {
                 goalkeepersArrayList.clear();
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    SquadModel squadModel = ds.getValue(SquadModel.class);
-                    goalkeepersArrayList.add(squadModel);
+                    SquadsModel squadsModel = ds.getValue(SquadsModel.class);
+                    goalkeepersArrayList.add(squadsModel);
                 }
 
                 goalkeepersList.setAdapter(goalkeepersAdapter);
@@ -189,8 +188,8 @@ public class SquadFragment extends Fragment {
                 defendersArrayList.clear();
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    SquadModel squadModel = ds.getValue(SquadModel.class);
-                    defendersArrayList.add(squadModel);
+                    SquadsModel squadsModel = ds.getValue(SquadsModel.class);
+                    defendersArrayList.add(squadsModel);
                 }
 
                 defendersList.setAdapter(defendersAdapter);
@@ -209,8 +208,8 @@ public class SquadFragment extends Fragment {
                 midfieldersArrayList.clear();
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    SquadModel squadModel = ds.getValue(SquadModel.class);
-                    midfieldersArrayList.add(squadModel);
+                    SquadsModel squadsModel = ds.getValue(SquadsModel.class);
+                    midfieldersArrayList.add(squadsModel);
                 }
 
                 midfieldersList.setAdapter(midfieldersAdapter);
@@ -229,8 +228,8 @@ public class SquadFragment extends Fragment {
                 forwardsArrayList.clear();
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    SquadModel squadModel = ds.getValue(SquadModel.class);
-                    forwardsArrayList.add(squadModel);
+                    SquadsModel squadsModel = ds.getValue(SquadsModel.class);
+                    forwardsArrayList.add(squadsModel);
                 }
 
                 forwardsList.setAdapter(forwardsAdapter);

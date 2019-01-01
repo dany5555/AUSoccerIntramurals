@@ -6,17 +6,22 @@ package com.ausoccer.ausoccerintramurals;
 
 public class StandingsModel {
 
-    private String teamLogoUrl, teamName, gamesPlayed, goalDifference, points;
-    private int position;
+    private String teamLogoUrl, teamName;
+    private int matchesPlayed, matchesWon, matchesDrawn, matchesLost, goalsFor, goalsAgainst, goalDifference, points, position;
 
     public StandingsModel() {
 
     }
 
-    public StandingsModel(String teamLogoUrl, String teamName, String gamesPlayed, String goalDifference, String points, int position) {
+    public StandingsModel(String teamLogoUrl, String teamName, int matchesPlayed, int matchesWon, int matchesDrawn, int matchesLost, int goalsFor, int goalsAgainst, int goalDifference, int points, int position) {
         this.teamLogoUrl = teamLogoUrl;
         this.teamName = teamName;
-        this.gamesPlayed = gamesPlayed;
+        this.matchesPlayed = matchesPlayed;
+        this.matchesWon = matchesWon;
+        this.matchesDrawn = matchesDrawn;
+        this.matchesLost = matchesLost;
+        this.goalsFor = goalsFor;
+        this.goalsAgainst = goalsAgainst;
         this.goalDifference = goalDifference;
         this.points = points;
         this.position = position;
@@ -38,27 +43,67 @@ public class StandingsModel {
         this.teamName = teamName;
     }
 
-    public String getGamesPlayed() {
-        return gamesPlayed;
+    public int getMatchesPlayed() {
+        return matchesPlayed;
     }
 
-    public void setGamesPlayed(String gamesPlayed) {
-        this.gamesPlayed = gamesPlayed;
+    public void setMatchesPlayed(int matchesPlayed) {
+        this.matchesPlayed = matchesPlayed;
     }
 
-    public String getGoalDifference() {
+    public int getMatchesWon() {
+        return matchesWon;
+    }
+
+    public void setMatchesWon(int matchesWon) {
+        this.matchesWon = matchesWon;
+    }
+
+    public int getMatchesDrawn() {
+        return matchesDrawn;
+    }
+
+    public void setMatchesDrawn(int matchesDrawn) {
+        this.matchesDrawn = matchesDrawn;
+    }
+
+    public int getMatchesLost() {
+        return matchesLost;
+    }
+
+    public void setMatchesLost(int matchesLost) {
+        this.matchesLost = matchesLost;
+    }
+
+    public int getGoalsFor() {
+        return goalsFor;
+    }
+
+    public void setGoalsFor(int goalsFor) {
+        this.goalsFor = goalsFor;
+    }
+
+    public int getGoalsAgainst() {
+        return goalsAgainst;
+    }
+
+    public void setGoalsAgainst(int goalsAgainst) {
+        this.goalsAgainst = goalsAgainst;
+    }
+
+    public int getGoalDifference() {
         return goalDifference;
     }
 
-    public void setGoalDifference(String goalDifference) {
+    public void setGoalDifference(int goalDifference) {
         this.goalDifference = goalDifference;
     }
 
-    public String getPoints() {
+    public int getPoints() {
         return points;
     }
 
-    public void setPoints(String points) {
+    public void setPoints(int points) {
         this.points = points;
     }
 

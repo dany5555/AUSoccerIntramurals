@@ -88,7 +88,7 @@ public class MatchesAdapter extends BaseAdapter {
             matchNumber.setText("MATCH " + matchesModel.getMatchNumber());
 
             liveMatchNumber.setText("MATCH " + matchesModel.getMatchNumber());
-            liveResult.setText(matchesModel.getLiveResult());
+            liveResult.setText(matchesModel.getResult());
             liveStatus.setText(matchesModel.getMatchStatus());
 
             //Picasso.get().load(matchesModel.getHomeTeamLogoUrl()).error(R.drawable.empty_team_logo).resize(50, 50).centerCrop().into(homeTeamLogo);

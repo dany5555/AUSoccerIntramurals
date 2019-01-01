@@ -17,22 +17,22 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
 public class SquadAdapter extends BaseAdapter{
 
     Context context;
-    ArrayList<SquadModel> squadModelArrayList;
-    SquadModel squadModel;
+    ArrayList<SquadsModel> squadsModelArrayList;
+    SquadsModel squadsModel;
 
-    public SquadAdapter(Context context, ArrayList<SquadModel> squadModelArrayList) {
+    public SquadAdapter(Context context, ArrayList<SquadsModel> squadsModelArrayList) {
         this.context = context;
-        this.squadModelArrayList = squadModelArrayList;
+        this.squadsModelArrayList = squadsModelArrayList;
     }
 
     @Override
     public int getCount() {
-        return squadModelArrayList.size();
+        return squadsModelArrayList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return squadModelArrayList.get(i);
+        return squadsModelArrayList.get(i);
     }
 
     @Override
@@ -50,11 +50,11 @@ public class SquadAdapter extends BaseAdapter{
         TextView playerName = view.findViewById(R.id.player_name);
         TextView playerNumber = view.findViewById(R.id.player_number);
 
-        squadModel = (SquadModel) this.getItem(i);
+        squadsModel = (SquadsModel) this.getItem(i);
 
-        playerName.setText(squadModel.getFirstName() + " " + squadModel.getLastName());
-        playerNumber.setText(String.valueOf(squadModel.getNumber()));
-        Glide.with(context).load(squadModel.getPictureUrl()).transition(withCrossFade()).into(playerPicture);
+        playerName.setText(squadsModel.getFirstName() + " " + squadsModel.getLastName());
+        playerNumber.setText(String.valueOf(squadsModel.getNumber()));
+        Glide.with(context).load(squadsModel.getPictureUrl()).transition(withCrossFade()).into(playerPicture);
 
         return view;
     }
