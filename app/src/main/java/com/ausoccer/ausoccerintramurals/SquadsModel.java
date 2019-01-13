@@ -3,8 +3,8 @@ package com.ausoccer.ausoccerintramurals;
 public class SquadsModel {
 
     // Player general information variables.
-    String playerUid, nationality, firstName, lastName, pictureUrl, position, team;
-    int age, height, weight, number;
+    String playerUid, height, nationality, firstName, lastName, pictureUrl, position, team;
+    int age, weight, number;
 
     // Player stats variables.
     int assists, fouls, goalsScored, matchesPlayed, redCards, yellowCards;
@@ -14,7 +14,7 @@ public class SquadsModel {
 
     }
 
-    public SquadsModel(String playerUid, String nationality, String firstName, String lastName, String pictureUrl, String position, String team, int age, int height, int weight, int number, int assists, int fouls, int goalsScored, int matchesPlayed, int redCards, int yellowCards) {
+    public SquadsModel(String playerUid, String nationality, String firstName, String lastName, String pictureUrl, String position, String team, String height, int age, int weight, int number, int assists, int fouls, int goalsScored, int matchesPlayed, int redCards, int yellowCards) {
         this.playerUid = playerUid;
         this.nationality = nationality;
         this.firstName = firstName;
@@ -98,11 +98,11 @@ public class SquadsModel {
         this.age = age;
     }
 
-    public int getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <!--
     <item
         android:id="@+id/sign_in_icon"
         app:showAsAction="collapseActionView"
@@ -14,6 +14,7 @@
         android:title="Logout">
 
     </item>
+    -->
 
     <item
         android:id="@+id/privacy_policy"

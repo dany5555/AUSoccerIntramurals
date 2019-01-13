@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.sign_out_icon :
+            /*case R.id.sign_out_icon :
                 FirebaseAuth.getInstance().signOut();
                 Toast.makeText(com.ausoccer.ausoccerintramurals.MainActivity.this, "Successfully logged out", Toast.LENGTH_SHORT).show();
                 return true;
@@ -241,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-                return true;
+                return true;*/
 
                 //Toast.makeText(getApplicationContext(), "This should show a dialog to log in", Toast.LENGTH_SHORT).show();
 
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    /*@Override
     protected void onStart() {
         super.onStart();
 
@@ -263,5 +263,5 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // User is not logged in.
         }
-    }
+    }*/
 }

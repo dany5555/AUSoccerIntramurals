@@ -129,7 +129,7 @@ public class MatchDataActivity extends AppCompatActivity {
             }
         });
 
-        currentMatchRef.child("liveResult").addValueEventListener(new ValueEventListener() {
+        currentMatchRef.child("result").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 liveResult.setText(dataSnapshot.getValue().toString());

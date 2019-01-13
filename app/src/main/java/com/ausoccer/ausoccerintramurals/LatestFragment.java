@@ -36,7 +36,7 @@ public class LatestFragment extends Fragment {
     ListView listView;
     HomeModel homeModel;
     CustomAdapter customAdapter;
-    FloatingActionButton addFabButton;
+    //FloatingActionButton addFabButton;
     EditText postTitleInput, postImageUrlInput;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -60,7 +60,7 @@ public class LatestFragment extends Fragment {
         listView = v.findViewById(R.id.listContents);
         listView.setDivider(null);
 
-        addFabButton = v.findViewById(R.id.add_fab);
+        //addFabButton = v.findViewById(R.id.add_fab);
 
         homeModel = new HomeModel();
         customAdapter = new CustomAdapter(getActivity(), homeCardsArrayList);
@@ -86,13 +86,13 @@ public class LatestFragment extends Fragment {
             }
         });
 
-        addFabButton.setOnClickListener(new View.OnClickListener() {
+        /*addFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkUserLoggedIn();
 
             }
-        });
+        });*/
 
         //checkUserLoggedIn();
 
@@ -103,7 +103,7 @@ public class LatestFragment extends Fragment {
         return v;
     }
 
-    private void checkUserLoggedIn() {
+    /*private void checkUserLoggedIn() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             //Toast.makeText(getContext(), "Logged in. Should display a dialog", Toast.LENGTH_SHORT).show();
@@ -162,6 +162,6 @@ public class LatestFragment extends Fragment {
         }
 
 
-    }
+    }*/
 
 }

@@ -36,7 +36,7 @@ public class MatchesFragment extends Fragment {
     com.ausoccer.ausoccerintramurals.PagerAdapter pagerAdapter;
 
     EditText homeTeamNameInput, awayTeamNameInput, homeTeamLogoUrlInput, awayTeamLogoUrlInput, matchDateInput, matchTimeInput, matchNumberInput;
-    FloatingActionButton addMatchFabButton;
+    //FloatingActionButton addMatchFabButton;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference matchday1 = database.getReference("Matches").child("Matchday1");
@@ -72,7 +72,7 @@ public class MatchesFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_matches, container, false);
 
-        addMatchFabButton = v.findViewById(R.id.add_match_fab);
+        //addMatchFabButton = v.findViewById(R.id.add_match_fab);
 
 
         currentTab.addValueEventListener(new ValueEventListener() {
@@ -91,13 +91,13 @@ public class MatchesFragment extends Fragment {
         });
 
 
-        addMatchFabButton.setOnClickListener(new View.OnClickListener() {
+        /*addMatchFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 executeAction();
 
             }
-        });
+        });*/
 
         matchesTabLayout = v.findViewById(R.id.matches_tab_layout);
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 1"));
@@ -147,7 +147,7 @@ public class MatchesFragment extends Fragment {
 
     }
 
-    private void executeAction() {
+    /*private void executeAction() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             //Toast.makeText(getContext(), "Logged in. Should display a dialog", Toast.LENGTH_SHORT).show();
@@ -308,7 +308,7 @@ public class MatchesFragment extends Fragment {
 
 
         }
-    }
+    }*/
 
     @Override
     public void onResume() {

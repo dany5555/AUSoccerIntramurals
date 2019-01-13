@@ -351,6 +351,7 @@
 
                 </RelativeLayout>
 
+                <!--
                 <RelativeLayout
                     android:id="@+id/second_row_2"
                     android:layout_width="wrap_content"
@@ -419,12 +420,13 @@
 
 
                 </RelativeLayout>
+                -->
 
                 <RelativeLayout
                     android:id="@+id/third_row"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/second_row_2"
+                    android:layout_below="@id/first_row"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="16dp">
 

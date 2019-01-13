@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
         listView = v.findViewById(R.id.listContents);
         listView.setDivider(null);
 
-        addFabButton = v.findViewById(R.id.add_fab);
+        //addFabButton = v.findViewById(R.id.add_fab);
 
         homeModel = new HomeModel();
         customAdapter = new CustomAdapter(getActivity(), homeCardsArrayList);
@@ -85,13 +85,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        addFabButton.setOnClickListener(new View.OnClickListener() {
+        /*addFabButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkUserLoggedIn();
 
             }
-        });
+        });*/
 
         //checkUserLoggedIn();
 
@@ -102,7 +102,7 @@ public class HomeFragment extends Fragment {
         return v;
     }
 
-    private void checkUserLoggedIn() {
+    /*private void checkUserLoggedIn() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             //Toast.makeText(getContext(), "Logged in. Should display a dialog", Toast.LENGTH_SHORT).show();
@@ -160,5 +160,5 @@ public class HomeFragment extends Fragment {
 
         }
 
-    }
+    }*/
 }

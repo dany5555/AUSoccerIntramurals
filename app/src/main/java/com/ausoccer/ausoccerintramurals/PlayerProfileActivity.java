@@ -21,7 +21,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
     String playerPos;
 
     TextView playerName, teamName, playerNumber, playerPosition, playerCountry, playerWeight, playerHeight, playerAge,
-             matchesPlayed, goalsScored, assists, shotsOnTarget, shotsOffTarget, fouls, redCards, yellowCards;
+             matchesPlayed, goalsScored, assists, fouls, redCards, yellowCards;
     ImageView teamLogo, playerPicture;
 
     @Override
@@ -43,8 +43,6 @@ public class PlayerProfileActivity extends AppCompatActivity {
         playerHeight = findViewById(R.id.height);
         matchesPlayed = findViewById(R.id.matches_played);
         goalsScored = findViewById(R.id.goals_scored);
-        shotsOnTarget = findViewById(R.id.shots_on_target);
-        shotsOffTarget = findViewById(R.id.shots_off_target);
         assists = findViewById(R.id.assists);
         fouls = findViewById(R.id.fouls);
         redCards = findViewById(R.id.red_cards);
@@ -105,7 +103,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
             }
         });
 
-        currentPlayerRef.child("country").addValueEventListener(new ValueEventListener() {
+        currentPlayerRef.child("nationality").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 playerCountry.setText(dataSnapshot.getValue().toString());
@@ -120,7 +118,7 @@ public class PlayerProfileActivity extends AppCompatActivity {
         currentPlayerRef.child("weight").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                playerWeight.setText(dataSnapshot.getValue().toString());
+                playerWeight.setText(Integer.valueOf(dataSnapshot.getValue().toString()) + " LB");
             }
 
             @Override
@@ -205,30 +203,6 @@ public class PlayerProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 assists.setText(dataSnapshot.getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        currentPlayerRef.child("shotsOnTarget").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                shotsOnTarget.setText(dataSnapshot.getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        currentPlayerRef.child("shotsOffTarget").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                shotsOffTarget.setText(dataSnapshot.getValue().toString());
             }
 
             @Override
