@@ -61,9 +61,9 @@ public class StandingsAdapter extends BaseAdapter {
         standingsModel = (StandingsModel) this.getItem(i);
 
         teamName.setText(standingsModel.getTeamName());
-        matchesPlayed.setText(standingsModel.getMatchesPlayed());
-        goalDifference.setText(standingsModel.getGoalDifference());
-        points.setText(standingsModel.getPoints());
+        matchesPlayed.setText(String.valueOf(standingsModel.getMatchesPlayed()));
+        goalDifference.setText(String.valueOf(standingsModel.getGoalDifference()));
+        points.setText(String.valueOf(standingsModel.getPoints()));
         position.setText(String.valueOf(standingsModel.getPosition()));
 
         //Picasso.get().load(standingsModel.getTeamLogoUrl()).error(R.drawable.empty_team_logo).resize(50, 50).centerCrop().into(teamLogo);
