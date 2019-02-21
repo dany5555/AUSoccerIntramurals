@@ -39,11 +39,23 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 Matchday6Fragment tab6 = new Matchday6Fragment();
                 return tab6;
             case 6:
-                SemiFinalsFragment tab7 = new SemiFinalsFragment();
+                Matchday7Fragment tab7 = new Matchday7Fragment();
                 return tab7;
             case 7:
-                FinalFragment tab8 = new FinalFragment();
+                Matchday8Fragment tab8 = new Matchday8Fragment();
                 return tab8;
+            case 8:
+                Matchday9Fragment tab9 = new Matchday9Fragment();
+                return tab9;
+            case 9:
+                Matchday10Fragment tab10 = new Matchday10Fragment();
+                return tab10;
+            case 10:
+                Matchday11Fragment tab11 = new Matchday11Fragment();
+                return tab11;
+            case 11:
+                FinalFragment tab12 = new FinalFragment();
+                return tab12;
             default:
                     return null;
         }

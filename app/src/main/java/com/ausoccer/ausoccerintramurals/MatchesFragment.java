@@ -106,6 +106,14 @@ public class MatchesFragment extends Fragment {
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 4"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 5"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 6"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 7"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 8"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 9"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 10"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 11"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 12"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("MATCHDAY 13"));
+        matchesTabLayout.addTab(matchesTabLayout.newTab().setText("QUARTER-FINALS"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("SEMI-FINALS"));
         matchesTabLayout.addTab(matchesTabLayout.newTab().setText("FINAL"));
 
